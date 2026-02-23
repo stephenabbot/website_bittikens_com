@@ -1,24 +1,11 @@
 ---
-import { Astronav, MenuItems, MenuIcon, Dropdown, DropdownItems } from "astro-navbar";
 import Icon from "./Icon.astro";
 import type { iconPaths } from "./IconPaths";
 import ThemeToggle from "./ThemeToggle.astro";
 
-const iconLinks: {
-	label: string;
-	href: string;
-	icon: keyof typeof iconPaths;
-}[] = [
-	{
-		label: "GitHub",
-		href: "https://github.com/stephenabbot?tab=repositories",
-		icon: "github-logo",
-	},
-	{
-		label: "LinkedIn",
-		href: "https://www.linkedin.com/in/stephen-abbot/",
-		icon: "linkedin-logo",
-	},
+const iconLinks: { label: string; href: string; icon: keyof typeof iconPaths }[] = [
+	{ label: "GitHub", href: "https://github.com/stephenabbot?tab=repositories", icon: "github-logo" },
+	{ label: "LinkedIn", href: "https://www.linkedin.com/in/stephen-abbot/", icon: "linkedin-logo" },
 ];
 
 const projectGroups = [
@@ -61,92 +48,133 @@ const isCurrentPage = (href: string) => {
 };
 ---
 
-<Astronav>
-	<nav>
-		<div class="menu-header">
-			<a href="/" class="site-title">
-				<Icon icon="terminal-window" color="var(--accent-regular)" size="1.6em" gradient />
-				Stephen Abbot
-			</a>
-			<MenuIcon class="menu-icon-btn">
-				<div class="hamburger-icon">
-					<Icon icon="list" />
-				</div>
-			</MenuIcon>
-		</div>
-
-		<MenuItems class="menu-content" id="menu-content">
-			<ul class="nav-items">
-				<li>
-					<a aria-current={isCurrentPage("/") ? "page" : null} class="link" href="/">Home</a>
-				</li>
-
-				<!-- Projects dropdown -->
-				<li class="dropdown-parent">
-					<Dropdown class="dropdown-wrapper">
-						<button
-							class={`link dropdown-trigger${isCurrentPage("/work/") ? " active" : ""}`}
-							aria-haspopup="true"
-						>
-							Projects <span class="dropdown-arrow">▾</span>
-						</button>
-						<DropdownItems class="dropdown-menu">
-							<div class="dropdown-inner">
-								{projectGroups.map((group) => (
-									<div class="dropdown-group">
-										<div class="dropdown-group-label">{group.label}</div>
-										{group.items.map((item) => (
-											<a
-												href={item.href}
-												class={`dropdown-item${isCurrentPage(item.href) ? " active" : ""}`}
-											>
-												{item.label}
-											</a>
-										))}
-									</div>
-								))}
-								<div class="dropdown-group dropdown-group--footer">
-									<a href="/work/" class="dropdown-item dropdown-item--all">
-										View All Projects →
-									</a>
-								</div>
-							</div>
-						</DropdownItems>
-					</Dropdown>
-				</li>
-
-				<li>
-					<a aria-current={isCurrentPage("/architecture/") ? "page" : null} class="link" href="/architecture/">Architecture</a>
-				</li>
-				<li>
-					<a aria-current={isCurrentPage("/experience/") ? "page" : null} class="link" href="/experience/">Experience</a>
-				</li>
-				<li>
-					<a aria-current={isCurrentPage("/blog/") ? "page" : null} class="link" href="/blog/">Blog</a>
-				</li>
-				<li>
-					<a aria-current={isCurrentPage("/resume/") ? "page" : null} class="link" href="/resume/">Resume</a>
-				</li>
-			</ul>
-
-			<div class="menu-footer">
-				<div class="socials">
-					{
-						iconLinks.map(({ href, icon, label }) => (
-							<a href={href} class="social">
-								<span class="sr-only">{label}</span>
-								<Icon icon={icon} />
-							</a>
-						))
-					}
-				</div>
-				<div class="theme-toggle">
-					<ThemeToggle />
-				</div>
+<nav id="site-nav">
+	<div class="menu-header">
+		<a href="/" class="site-title">
+			<Icon icon="terminal-window" color="var(--accent-regular)" size="1.6em" gradient />
+			Stephen Abbot
+		</a>
+		<button id="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+			<div class="hamburger-icon">
+				<Icon icon="list" />
 			</div>
-		</MenuItems>
-	</nav>
-</Astronav>
+		</button>
+	</div>
+
+	<div class="menu-content" id="menu-content">
+		<ul class="nav-items">
+			<li>
+				<a aria-current={isCurrentPage("/") ? "page" : null} class="link" href="/">Home</a>
+			</li>
+			<li class="dropdown-parent">
+				<button
+					class={`link dropdown-trigger${isCurrentPage("/work/") ? " active" : ""}`}
+					aria-haspopup="true"
+					aria-expanded="false"
+					id="projects-btn"
+				>
+					Projects <span class="dropdown-arrow">▾</span>
+				</button>
+				<div class="dropdown-menu" id="projects-dropdown" role="menu">
+					{projectGroups.map((group) => (
+						<div class="dropdown-group">
+							<div class="dropdown-group-label">{group.label}</div>
+							{group.items.map((item) => (
+								<a
+									href={item.href}
+									class={`dropdown-item${isCurrentPage(item.href) ? " active" : ""}`}
+									role="menuitem"
+								>
+									{item.label}
+								</a>
+							))}
+						</div>
+					))}
+					<div class="dropdown-group dropdown-group--footer">
+						<a href="/work/" class="dropdown-item dropdown-item--all" role="menuitem">
+							View All Projects →
+						</a>
+					</div>
+				</div>
+			</li>
+			<li>
+				<a aria-current={isCurrentPage("/architecture/") ? "page" : null} class="link" href="/architecture/">Architecture</a>
+			</li>
+			<li>
+				<a aria-current={isCurrentPage("/experience/") ? "page" : null} class="link" href="/experience/">Experience</a>
+			</li>
+			<li>
+				<a aria-current={isCurrentPage("/blog/") ? "page" : null} class="link" href="/blog/">Blog</a>
+			</li>
+			<li>
+				<a aria-current={isCurrentPage("/resume/") ? "page" : null} class="link" href="/resume/">Resume</a>
+			</li>
+		</ul>
+
+		<div class="menu-footer">
+			<div class="socials">
+				{iconLinks.map(({ href, icon, label }) => (
+					<a href={href} class="social">
+						<span class="sr-only">{label}</span>
+						<Icon icon={icon} />
+					</a>
+				))}
+			</div>
+			<div class="theme-toggle">
+				<ThemeToggle />
+			</div>
+		</div>
+	</div>
+</nav>
+
+<script>
+	function initNav() {
+		const toggle = document.getElementById("nav-toggle");
+		const menu = document.getElementById("menu-content");
+		const projectsBtn = document.getElementById("projects-btn");
+		const dropdown = document.getElementById("projects-dropdown");
+
+		// Mobile menu toggle
+		toggle?.addEventListener("click", (e) => {
+			e.stopPropagation();
+			const isOpen = menu?.hasAttribute("data-open");
+			menu?.toggleAttribute("data-open");
+			toggle.setAttribute("aria-expanded", isOpen ? "false" : "true");
+			// Close dropdown when closing menu
+			if (isOpen) {
+				dropdown?.removeAttribute("data-open");
+				projectsBtn?.setAttribute("aria-expanded", "false");
+			}
+		});
+
+		// Projects dropdown toggle
+		projectsBtn?.addEventListener("click", (e) => {
+			e.stopPropagation();
+			const isOpen = dropdown?.hasAttribute("data-open");
+			dropdown?.toggleAttribute("data-open");
+			projectsBtn.setAttribute("aria-expanded", isOpen ? "false" : "true");
+		});
+
+		// Click outside closes dropdown (and mobile menu on desktop)
+		document.addEventListener("click", () => {
+			dropdown?.removeAttribute("data-open");
+			projectsBtn?.setAttribute("aria-expanded", "false");
+		});
+
+		// Escape key closes both
+		document.addEventListener("keydown", (e) => {
+			if (e.key === "Escape") {
+				dropdown?.removeAttribute("data-open");
+				projectsBtn?.setAttribute("aria-expanded", "false");
+				menu?.removeAttribute("data-open");
+				toggle?.setAttribute("aria-expanded", "false");
+			}
+		});
+	}
+
+	document.addEventListener("DOMContentLoaded", initNav);
+	document.addEventListener("astro:after-swap", initNav);
+</script>
 
 <style>
 	nav {
@@ -173,18 +201,26 @@ const isCurrentPage = (href: string) => {
 		text-decoration: none;
 	}
 
+	/* Hamburger button */
+	#nav-toggle {
+		display: flex;
+		background: none;
+		border: none;
+		cursor: pointer;
+		padding: 0;
+	}
+
 	.hamburger-icon {
 		display: flex;
-		border: 0;
 		border-radius: 999rem;
 		padding: 0.5rem;
 		font-size: 1.5rem;
 		color: var(--gray-300);
 		background: radial-gradient(var(--gray-900), var(--gray-800) 150%);
 		box-shadow: var(--shadow-md);
-		cursor: pointer;
 	}
 
+	/* Mobile: menu hidden by default, shown via data-open */
 	.menu-content {
 		display: none;
 		position: absolute;
@@ -194,6 +230,10 @@ const isCurrentPage = (href: string) => {
 		border-bottom: 1px solid var(--gray-800);
 		border-radius: 0 0 0.75rem 0.75rem;
 		box-shadow: var(--shadow-lg);
+	}
+
+	.menu-content[data-open] {
+		display: block;
 	}
 
 	.nav-items {
@@ -225,6 +265,7 @@ const isCurrentPage = (href: string) => {
 		color: var(--gray-0);
 	}
 
+	/* Dropdown trigger */
 	.dropdown-trigger {
 		display: flex;
 		align-items: center;
@@ -236,20 +277,22 @@ const isCurrentPage = (href: string) => {
 		opacity: 0.7;
 	}
 
+	/* Dropdown panel: hidden by default, shown via data-open */
 	.dropdown-menu {
-		margin-top: 0.25rem;
-	}
-
-	.dropdown-inner {
+		display: none;
+		flex-direction: column;
+		gap: 0.5rem;
 		background-color: var(--gray-999);
 		border: 1px solid var(--gray-800);
 		border-radius: 0.75rem;
 		padding: 0.75rem;
+		margin-top: 0.25rem;
 		min-width: 14rem;
 		box-shadow: var(--shadow-lg);
+	}
+
+	.dropdown-menu[data-open] {
 		display: flex;
-		flex-direction: column;
-		gap: 0.5rem;
 	}
 
 	.dropdown-group {
@@ -338,6 +381,7 @@ const isCurrentPage = (href: string) => {
 		height: calc(var(--icon-size) + 2 * var(--icon-padding));
 	}
 
+	/* ── Desktop ────────────────────────────────────────── */
 	@media (min-width: 50em) {
 		nav {
 			display: grid;
@@ -355,7 +399,14 @@ const isCurrentPage = (href: string) => {
 			font-size: var(--text-lg);
 		}
 
-		.menu-content {
+		/* Hide hamburger on desktop */
+		#nav-toggle {
+			display: none;
+		}
+
+		/* Always show menu on desktop regardless of data-open */
+		.menu-content,
+		.menu-content[data-open] {
 			display: contents;
 			position: static;
 			background: none;
@@ -407,7 +458,9 @@ const isCurrentPage = (href: string) => {
 			position: relative;
 		}
 
-		.dropdown-menu {
+		/* Dropdown panel absolute positioned below trigger on desktop */
+		.dropdown-menu,
+		.dropdown-menu[data-open] {
 			position: absolute;
 			top: calc(100% + 0.5rem);
 			left: 50%;
@@ -416,8 +469,12 @@ const isCurrentPage = (href: string) => {
 			width: 16rem;
 		}
 
-		.dropdown-inner {
-			width: 100%;
+		.dropdown-menu {
+			display: none;
+		}
+
+		.dropdown-menu[data-open] {
+			display: flex;
 		}
 
 		.menu-footer {
