@@ -41,9 +41,6 @@ const publishedDate = entry.data.publishDate.toLocaleDateString('en-US', {
 			<main class="wrapper">
 				<div class="project-layout">
 					<article class="content">
-						{entry.data.img && (
-							<img src={entry.data.img} alt={entry.data.img_alt || ''} />
-						)}
 						<Content />
 					</article>
 					<aside class="sidebar">
