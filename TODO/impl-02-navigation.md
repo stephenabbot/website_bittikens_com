@@ -1,3 +1,42 @@
+# Implementation 02: Navigation Restructure with Projects Dropdown
+**Depends on:** impl-01 (quick fixes) should be done first, but not strictly required
+**Estimated session:** Medium (1–2 hours)
+**Goal:** Replace the 8-item flat nav with a 6-item nav that includes a "Projects" dropdown listing all individual project pages.
+
+---
+
+## Overview
+
+The current nav has 8 flat items: Home | Work | Architecture | Experience | Technologies | Blog | Resume | About.
+
+**New nav:** Home | Projects ▾ | Architecture | Experience | Blog | Resume
+
+- "Work" → renamed "Projects" with a dropdown
+- "Technologies" → removed from nav (content stays; linked from Resume page)
+- "About" → removed from nav (accessible from footer)
+- Projects dropdown lists all individual project pages grouped by category
+
+**Approach:** Install the `astro-navbar` npm package. Replace the custom `menu-button` web component in `Nav.astro` with `astro-navbar` components. Preserve the existing visual design (pill-shaped nav bar, gradient stroke, theme toggle, social icons).
+
+---
+
+## Step 1: Install astro-navbar
+
+```bash
+npm install astro-navbar
+```
+
+Verify it appears in `package.json` dependencies.
+
+---
+
+## Step 2: Rewrite Nav.astro
+
+**File:** `src/components/Nav.astro`
+
+Replace the entire file with the following. The visual CSS is preserved from the original; only the HTML structure and JS behavior changes to use `astro-navbar`.
+
+```astro
 ---
 import { Astronav, MenuItems, MenuIcon, Dropdown, DropdownItems } from "astro-navbar";
 import Icon from "./Icon.astro";
@@ -173,6 +212,7 @@ const isCurrentPage = (href: string) => {
 		text-decoration: none;
 	}
 
+	/* Mobile hamburger button */
 	.hamburger-icon {
 		display: flex;
 		border: 0;
@@ -185,6 +225,7 @@ const isCurrentPage = (href: string) => {
 		cursor: pointer;
 	}
 
+	/* Mobile: menu is a dropdown panel */
 	.menu-content {
 		position: absolute;
 		left: 0;
@@ -224,6 +265,7 @@ const isCurrentPage = (href: string) => {
 		color: var(--gray-0);
 	}
 
+	/* Dropdown trigger */
 	.dropdown-trigger {
 		display: flex;
 		align-items: center;
@@ -235,6 +277,7 @@ const isCurrentPage = (href: string) => {
 		opacity: 0.7;
 	}
 
+	/* Dropdown panel */
 	.dropdown-menu {
 		background-color: var(--gray-999);
 		border: 1px solid var(--gray-800);
@@ -334,6 +377,7 @@ const isCurrentPage = (href: string) => {
 		height: calc(var(--icon-size) + 2 * var(--icon-padding));
 	}
 
+	/* Desktop layout */
 	@media (min-width: 50em) {
 		nav {
 			display: grid;
@@ -351,6 +395,7 @@ const isCurrentPage = (href: string) => {
 			font-size: var(--text-lg);
 		}
 
+		/* On desktop, astro-navbar's MenuIcon hides; MenuItems always shows */
 		.menu-content {
 			display: contents;
 			position: static;
@@ -440,3 +485,25 @@ const isCurrentPage = (href: string) => {
 		}
 	}
 </style>
+```
+
+---
+
+## Troubleshooting Notes
+
+- `astro-navbar` uses Alpine.js-style `x-data` or its own mechanism to show/hide `<MenuItems>` on mobile. If the mobile menu does not toggle, check that `astro-navbar` version supports Astro 5.x and that the `<Astronav>` wrapper is present.
+- The `<MenuIcon>` component toggles the `<MenuItems>` visibility. If this conflicts with the existing hamburger styling, wrap it in the `.hamburger-icon` div as shown above.
+- On desktop, `astro-navbar` should still allow `<MenuItems>` to render inline. If `display: contents` does not apply because astro-navbar wraps MenuItems in a div, add `display: contents` to that wrapper via a global CSS selector.
+- If the `DropdownItems` does not render with the correct positioning, verify that `.dropdown-parent { position: relative }` is applied and `.dropdown-menu { position: absolute }` takes effect.
+
+---
+
+## Acceptance Criteria
+- [ ] Nav shows: Home | Projects ▾ | Architecture | Experience | Blog | Resume (6 items)
+- [ ] "Technologies" and "About" are not in the main nav
+- [ ] Clicking "Projects" on desktop reveals dropdown with 4 groups and all project links
+- [ ] "View All Projects →" at bottom of dropdown links to `/work/`
+- [ ] Mobile hamburger toggles the full nav including the Projects section
+- [ ] Current page highlight still works for all top-level nav items
+- [ ] Social icons and theme toggle still appear in the nav footer
+- [ ] No console errors

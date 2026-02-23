@@ -13,57 +13,45 @@ tags:
   - CDN
 ---
 
-## Scalable Website Hosting Challenge
+## The Problem
 
-Static websites require coordination between multiple AWS services for secure, performant hosting. Manual configuration creates inconsistency, security gaps, and operational overhead when managing multiple domains.
+Static website hosting on AWS involves several interdependent resources that must be provisioned in the correct order: S3 bucket, CloudFront distribution, ACM certificate (in us-east-1 regardless of bucket region), and Route53 records. Doing this manually is error-prone and not repeatable across domains.
 
-This project provides automated infrastructure deployment for multiple static websites with complete SSL certificate management and global content distribution through AWS managed services.
+## The Approach
 
-## Architecture & Implementation
+Terraform modules manage all hosting resources with consistent structure. ACM certificate validation is automated via Route53 DNS records. The same module handles multiple domains (denverbytes.com and bittikens.com) with per-domain configuration.
 
-### Multi-Service Orchestration
+## The Outcome
 
-- **S3 buckets** with versioning, encryption, and public access blocks
-- **CloudFront distributions** with Origin Access Control and comprehensive security headers
-- **Route53 hosted zones** with A, AAAA, and CNAME records for IPv4/IPv6 and www support
-- **ACM certificates** with DNS validation for apex and www subdomains through Route53
+Repeatable, version-controlled hosting infrastructure deployable to a new domain in minutes. S3 bucket versioning enables content rollback. CloudFront distribution provides global availability and HTTPS with no additional cost per request.
 
-### Advanced Features
+## Stack
 
-- **CloudFront Functions** for directory index handling and clean URLs
-- **Security headers** via CloudFront Response Headers Policy providing XSS protection, clickjacking prevention, and content security enforcement
-- **www subdomain support** ensuring professional website accessibility patterns with automatic SSL certificate coverage for both apex and www domains
-- **Cost optimization** through PriceClass_100 covering US and Europe regions
-- **Service discovery** via SSM Parameter Store for content projects
+| Technology | Purpose |
+|------------|---------|
+| Terraform | Infrastructure provisioning |
+| AWS S3 | Static content storage with versioning |
+| AWS CloudFront | CDN, HTTPS, custom domain |
+| AWS ACM | TLS certificate management |
+| AWS Route53 | DNS and certificate validation |
 
-### Current Deployments
-
-Successfully hosting multiple domains with consistent infrastructure patterns:
-
-- **bittikens.com** - This website
-- **denverbytes.com** - Production website
-- **denverbites.com** - redirect to denverbytes.com
-
-## The Scalability Story
-
-This isn't just website hosting - it's **infrastructure that scales with business needs**. The dynamic domain discovery through filesystem scanning means adding new domains requires minimal configuration changes.
-
-### Operational Excellence
-
-- **Automated deployment** through GitHub Actions with OIDC authentication
-- **Idempotent operations** supporting multiple executions without conflicts
-- **Comprehensive resource tagging** for cost allocation and operational visibility
-- **Loose coupling** between infrastructure and content projects
-
-### Performance & Security
-
-- **Global CDN distribution** reducing latency worldwide
-- **SSL/TLS certificates** with automatic DNS validation and renewal
-- **Origin Access Control** restricting S3 access to CloudFront only
-- **Error page handling** redirecting client errors to homepage
-
-This infrastructure demonstrates how to build **enterprise-grade hosting solutions** that are both cost-effective and operationally efficient, serving as a foundation for any organization's web presence.
-
-**Cost-Effective Architecture**: The entire multi-domain hosting infrastructure operates at approximately $3/month total, demonstrating how modern serverless architecture delivers enterprise capabilities at startup-friendly costs.
+**Domains hosted:**
+- **bittikens.com** — This website
+- **denverbytes.com** — Production website
+- **denverbites.com** — Redirect alias to denverbytes.com
 
 **Repository**: [website-infrastructure](https://github.com/stephenabbot/website-infrastructure)
+
+---
+
+<details>
+<summary>AWS Well-Architected Alignment</summary>
+
+- **Operational Excellence**: Terraform-managed; repeatable across domains; automated certificate validation
+- **Security**: S3 public access blocked; CloudFront origin access control; HTTPS enforced
+- **Reliability**: S3 versioning for rollback; CloudFront multi-region edge; ACM auto-renewal
+- **Performance Efficiency**: Global CDN; no origin compute; efficient static delivery
+- **Cost Optimization**: Per-request pricing; no idle cost; shared infrastructure across domains
+- **Sustainability**: No servers; minimal resource footprint
+
+</details>

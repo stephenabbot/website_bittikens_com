@@ -13,52 +13,39 @@ tags:
   - Compliance
 ---
 
-## The Observability Challenge
+## The Problem
 
-AWS accounts generate thousands of API calls daily from users, applications, and automated processes. Without audit logging, determining who made changes, when they occurred, and what was affected becomes impossible.
+AWS accounts without CloudTrail enabled have no audit trail for API activity — no record of who changed what, when, or from where. In regulated environments, this is a compliance gap. In incident response, it means investigating blind.
 
-This project provides foundational audit logging by deploying CloudTrail with comprehensive storage and monitoring capabilities, using CloudFormation for consistent deployment across environments.
+## The Approach
 
-## Comprehensive Audit Infrastructure
+CloudFormation-managed CloudTrail configuration establishes account-level API logging to a dedicated S3 bucket. Log file integrity validation is enabled. The deployment is automated and repeatable so it can be applied consistently across accounts.
 
-### Core Logging Components
-- **CloudTrail** with configurable event capture for management and optional data events
-- **S3 bucket** for audit log storage with versioning, encryption, and intelligent tiering
-- **CloudWatch Logs** integration for real-time event streaming and alerting
-- **IAM roles** with least privilege for CloudWatch Logs delivery
+## The Outcome
 
-### Cost Optimization Strategy
-- **S3 Intelligent Tiering** automatically optimizes storage costs based on access patterns
-- **Lifecycle policies** transition older logs to Glacier for long-term cost reduction
-- **Selective event capture** options balance audit coverage against logging costs
-- **Configurable retention** policies prevent indefinite log accumulation
+A reliable audit baseline that satisfies compliance requirements and enables post-incident forensics. Deployed as a reusable pattern that can be applied to any AWS account without manual configuration.
 
-### Service Discovery Integration
-- **SSM Parameter Store** publishes trail name, S3 bucket, and CloudWatch Logs identifiers
-- **Predictable parameter paths** enable consuming projects to discover audit resources
-- **Consistent resource naming** and tagging for operational visibility
+## Stack
 
-## Enterprise-Grade Governance
-
-This isn't just logging - it's **the foundation for enterprise governance and compliance**. Every API call is captured, stored durably, and made available for analysis.
-
-### Security & Compliance
-- **Comprehensive API activity logging** for security analysis and incident investigation
-- **Multi-region trail support** captures events across all AWS regions automatically
-- **Encrypted storage** with server-side encryption protects audit logs at rest
-- **Access controls** restrict log access while enabling CloudTrail service delivery
-
-### Operational Excellence
-- **Infrastructure as Code** with automated deployment and rollback capabilities
-- **Idempotent operations** support multiple execution attempts without conflicts
-- **Resource drift detection** through CloudFormation stack management
-- **Comprehensive documentation** with troubleshooting and cost estimation guides
-
-### Real-Time Monitoring
-- **CloudWatch Logs streaming** enables immediate alerting and analysis
-- **Event correlation** across services using transaction IDs and metadata
-- **Configurable retention** balances storage costs with compliance requirements
-
-This foundation enables **proactive security monitoring** and **compliance reporting** that scales with organizational growth, providing the audit trail that enterprise environments require.
+| Technology | Purpose |
+|------------|---------|
+| AWS CloudTrail | API activity logging |
+| AWS S3 | Log storage with integrity validation |
+| AWS CloudFormation | Infrastructure provisioning |
+| AWS KMS | Log encryption at rest |
 
 **Repository**: [service-observability-cloudtrail](https://github.com/stephenabbot/service-observability-cloudtrail)
+
+---
+
+<details>
+<summary>AWS Well-Architected Alignment</summary>
+
+- **Operational Excellence**: Automated, consistent deployment across accounts; no manual configuration
+- **Security**: Full API audit trail; log file integrity validation; encryption at rest via KMS
+- **Reliability**: S3 durability (99.999999999%); independent of application infrastructure
+- **Performance Efficiency**: Managed service; no compute to maintain
+- **Cost Optimization**: S3 Intelligent Tiering on log storage; minimal ongoing cost
+- **Sustainability**: No idle compute; managed service footprint
+
+</details>

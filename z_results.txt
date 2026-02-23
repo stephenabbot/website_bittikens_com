@@ -1,0 +1,131 @@
+=== SEARCH: bittikens vs denverbytes (source files only) ===
+Run date: Mon Feb 23 13:10:51 MST 2026
+
+--- Files containing 'bittikens' (source) ---
+/Users/stephenabbot/projects/website_bittikens_com/.claude/settings.local.json
+/Users/stephenabbot/projects/website_bittikens_com/docs/operations.md
+/Users/stephenabbot/projects/website_bittikens_com/docs/troubleshooting.md
+/Users/stephenabbot/projects/website_bittikens_com/astro.config.mjs
+/Users/stephenabbot/projects/website_bittikens_com/TODO/z_continue_refactor.md
+/Users/stephenabbot/projects/website_bittikens_com/README.md
+/Users/stephenabbot/projects/website_bittikens_com/config.env
+/Users/stephenabbot/projects/website_bittikens_com/package.json
+/Users/stephenabbot/projects/website_bittikens_com/scripts/cloudfront-basic-auth.js
+/Users/stephenabbot/projects/website_bittikens_com/.github/workflows/deploy.yml
+/Users/stephenabbot/projects/website_bittikens_com/.github/workflows/destroy.yml
+/Users/stephenabbot/projects/website_bittikens_com/src/content/resume/resume.md
+/Users/stephenabbot/projects/website_bittikens_com/src/content/work/professional-website-platform.md
+/Users/stephenabbot/projects/website_bittikens_com/src/content/work/website-infrastructure.md
+/Users/stephenabbot/projects/website_bittikens_com/src/components/MainHead.astro
+/Users/stephenabbot/projects/website_bittikens_com/src/config.ts
+/Users/stephenabbot/projects/website_bittikens_com/src/pages/architecture.astro
+
+--- Files containing 'denverbytes' (source) ---
+/Users/stephenabbot/projects/website_bittikens_com/TODO/z_continue_refactor.md
+/Users/stephenabbot/projects/website_bittikens_com/TODO/strategic-plan-v2.md
+/Users/stephenabbot/projects/website_bittikens_com/TODO/blog-topic-backlog.md
+/Users/stephenabbot/projects/website_bittikens_com/TODO/z_website_cleanup_02.md
+/Users/stephenabbot/projects/website_bittikens_com/src/content/work/website-infrastructure.md
+
+--- Detailed bittikens matches (file:line:content) ---
+/Users/stephenabbot/projects/website_bittikens_com/.claude/settings.local.json:6:      "Bash(/Users/stephenabbot/projects/website_bittikens_com/z_runcommands.sh:*)"
+/Users/stephenabbot/projects/website_bittikens_com/docs/operations.md:11:git clone https://github.com/stephenabbot/website_bittikens_com.git
+/Users/stephenabbot/projects/website_bittikens_com/docs/operations.md:12:cd website_bittikens_com
+/Users/stephenabbot/projects/website_bittikens_com/docs/operations.md:111:curl -I https://bittikens.com
+/Users/stephenabbot/projects/website_bittikens_com/docs/operations.md:114:curl -I https://bittikens.com/work/
+/Users/stephenabbot/projects/website_bittikens_com/docs/operations.md:115:curl -I https://bittikens.com/about/
+/Users/stephenabbot/projects/website_bittikens_com/docs/operations.md:122:aws s3 ls s3://bittikens-com-static-prd/
+/Users/stephenabbot/projects/website_bittikens_com/docs/operations.md:155:aws s3api list-object-versions --bucket bittikens-com-static-prd
+/Users/stephenabbot/projects/website_bittikens_com/docs/operations.md:159:  --copy-source "bittikens-com-static-prd/index.html?versionId=VERSION_ID" \
+/Users/stephenabbot/projects/website_bittikens_com/docs/operations.md:160:  --bucket bittikens-com-static-prd \
+/Users/stephenabbot/projects/website_bittikens_com/docs/operations.md:178:echo | openssl s_client -servername bittikens.com -connect bittikens.com:443 2>/dev/null | openssl x509 -noout -dates
+/Users/stephenabbot/projects/website_bittikens_com/docs/operations.md:185:curl -I https://bittikens.com
+/Users/stephenabbot/projects/website_bittikens_com/docs/troubleshooting.md:74:2. Check role exists: `aws iam get-role --role-name gharole-website_bittikens_com-prd`
+/Users/stephenabbot/projects/website_bittikens_com/docs/troubleshooting.md:101:aws ssm get-parameter --name "/deployment-roles/website_bittikens_com/role-arn" --region us-east-1
+/Users/stephenabbot/projects/website_bittikens_com/docs/troubleshooting.md:107:aws ssm get-parameter --name "/static-website/infrastructure/bittikens.com/bucket-name" --region us-east-1
+/Users/stephenabbot/projects/website_bittikens_com/docs/troubleshooting.md:108:aws ssm get-parameter --name "/static-website/infrastructure/bittikens.com/cloudfront-distribution-id" --region us-east-1
+/Users/stephenabbot/projects/website_bittikens_com/astro.config.mjs:7:  site: 'https://bittikens.com',
+/Users/stephenabbot/projects/website_bittikens_com/TODO/z_continue_refactor.md:1:# Continue: Migrate website from denverbytes.com to bittikens.com
+/Users/stephenabbot/projects/website_bittikens_com/TODO/z_continue_refactor.md:5:This project was copied from the denverbytes.com website repo to a new GitHub repo (`stephenabbot/website_bittikens_com`). The goal is to host it on bittikens.com as a staging/development site. AWS infrastructure (S3, CloudFront, Route53, SSM params, OIDC role) already exists for bittikens.com.
+/Users/stephenabbot/projects/website_bittikens_com/TODO/z_continue_refactor.md:17:- `config.env`: `DOMAIN_NAME=bittikens.com`, `GOOGLE_SEARCH_CONSOLE_TXT=` (empty)
+/Users/stephenabbot/projects/website_bittikens_com/TODO/z_continue_refactor.md:18:- `astro.config.mjs`: `site: 'https://bittikens.com'`
+/Users/stephenabbot/projects/website_bittikens_com/TODO/z_continue_refactor.md:19:- `package.json`: `"name": "website_bittikens_com"`
+/Users/stephenabbot/projects/website_bittikens_com/TODO/z_continue_refactor.md:24:- `.github/workflows/deploy.yml`: role changed to `gharole-website_bittikens_com-prd`
+/Users/stephenabbot/projects/website_bittikens_com/TODO/z_continue_refactor.md:29:- `src/components/MainHead.astro`: Person schema URL now uses `Astro.site?.href ?? "https://bittikens.com"`
+/Users/stephenabbot/projects/website_bittikens_com/TODO/z_continue_refactor.md:39:- `src/pages/architecture.astro`: GitHub link → `website_bittikens_com`
+/Users/stephenabbot/projects/website_bittikens_com/TODO/z_continue_refactor.md:40:- `src/content/resume/resume.md`: website → `https://bittikens.com`
+/Users/stephenabbot/projects/website_bittikens_com/TODO/z_continue_refactor.md:41:- `src/content/work/website-infrastructure.md`: Reordered domains (bittikens.com as "This website", denverbytes.com as "Production website")
+/Users/stephenabbot/projects/website_bittikens_com/TODO/z_continue_refactor.md:42:- `src/content/work/professional-website-platform.md`: Repo link and live site → bittikens.com
+/Users/stephenabbot/projects/website_bittikens_com/TODO/z_continue_refactor.md:43:- `README.md`: Repo reference → `website_bittikens_com`
+/Users/stephenabbot/projects/website_bittikens_com/TODO/z_continue_refactor.md:44:- `docs/operations.md`: All denverbytes references → bittikens (~11 replacements)
+/Users/stephenabbot/projects/website_bittikens_com/TODO/z_continue_refactor.md:45:- `docs/troubleshooting.md`: All denverbytes references → bittikens (~4 replacements)
+/Users/stephenabbot/projects/website_bittikens_com/TODO/z_continue_refactor.md:62:Deploy failed because the `AWS_ACCOUNT_ID` GitHub variable is not set on the `stephenabbot/website_bittikens_com` repo.
+/Users/stephenabbot/projects/website_bittikens_com/TODO/z_continue_refactor.md:69:   gh variable set AWS_ACCOUNT_ID --body "694394480102" --repo stephenabbot/website_bittikens_com
+/Users/stephenabbot/projects/website_bittikens_com/TODO/z_continue_refactor.md:94:   curl -I https://bittikens.com
+/Users/stephenabbot/projects/website_bittikens_com/TODO/z_continue_refactor.md:97:   curl -I -u stabbot:changeme https://bittikens.com
+/Users/stephenabbot/projects/website_bittikens_com/TODO/z_continue_refactor.md:99:   # Verify robots.txt shows bittikens.com
+/Users/stephenabbot/projects/website_bittikens_com/TODO/z_continue_refactor.md:100:   curl -u stabbot:changeme https://bittikens.com/robots.txt
+/Users/stephenabbot/projects/website_bittikens_com/TODO/z_continue_refactor.md:107:- The `GOOGLE_SEARCH_CONSOLE_TXT` is intentionally empty — bittikens.com is a dev/staging site and doesn't need Search Console verification. The deploy script's DNS verify step will warn but won't fail.
+/Users/stephenabbot/projects/website_bittikens_com/README.md:7:Repository: [website_bittikens_com](https://github.com/stephenabbot/website_bittikens_com)
+/Users/stephenabbot/projects/website_bittikens_com/config.env:5:DOMAIN_NAME=bittikens.com
+/Users/stephenabbot/projects/website_bittikens_com/package.json:2:  "name": "website_bittikens_com",
+/Users/stephenabbot/projects/website_bittikens_com/scripts/cloudfront-basic-auth.js:17:        'www-authenticate': { value: 'Basic realm="bittikens.com"' },
+/Users/stephenabbot/projects/website_bittikens_com/.github/workflows/deploy.yml:27:          role-to-assume: arn:aws:iam::${{ vars.AWS_ACCOUNT_ID }}:role/gharole-website_bittikens_com-prd
+/Users/stephenabbot/projects/website_bittikens_com/.github/workflows/destroy.yml:37:          role-to-assume: arn:aws:iam::${{ vars.AWS_ACCOUNT_ID }}:role/gharole-website_bittikens_com-prd
+/Users/stephenabbot/projects/website_bittikens_com/src/content/resume/resume.md:5:website: "https://bittikens.com"
+/Users/stephenabbot/projects/website_bittikens_com/src/content/work/professional-website-platform.md:125:**Repository**: [website_bittikens_com](https://github.com/stephenabbot/website_bittikens_com)
+/Users/stephenabbot/projects/website_bittikens_com/src/content/work/professional-website-platform.md:126:**Live Site**: [bittikens.com](https://bittikens.com)
+/Users/stephenabbot/projects/website_bittikens_com/src/content/work/website-infrastructure.md:43:- **bittikens.com** - This website
+/Users/stephenabbot/projects/website_bittikens_com/src/components/MainHead.astro:30:	"url": Astro.site?.href ?? "https://bittikens.com",
+/Users/stephenabbot/projects/website_bittikens_com/src/config.ts:2:  domain: 'bittikens.com',
+/Users/stephenabbot/projects/website_bittikens_com/src/config.ts:3:  siteUrl: 'https://bittikens.com',
+/Users/stephenabbot/projects/website_bittikens_com/src/config.ts:4:  repoName: 'website_bittikens_com',
+/Users/stephenabbot/projects/website_bittikens_com/src/config.ts:5:  repoUrl: 'https://github.com/stephenabbot/website_bittikens_com',
+/Users/stephenabbot/projects/website_bittikens_com/src/pages/architecture.astro:201:									href="https://github.com/stephenabbot/website_bittikens_com"
+
+--- Detailed denverbytes matches (file:line:content) ---
+/Users/stephenabbot/projects/website_bittikens_com/TODO/z_continue_refactor.md:1:# Continue: Migrate website from denverbytes.com to bittikens.com
+/Users/stephenabbot/projects/website_bittikens_com/TODO/z_continue_refactor.md:5:This project was copied from the denverbytes.com website repo to a new GitHub repo (`stephenabbot/website_bittikens_com`). The goal is to host it on bittikens.com as a staging/development site. AWS infrastructure (S3, CloudFront, Route53, SSM params, OIDC role) already exists for bittikens.com.
+/Users/stephenabbot/projects/website_bittikens_com/TODO/z_continue_refactor.md:41:- `src/content/work/website-infrastructure.md`: Reordered domains (bittikens.com as "This website", denverbytes.com as "Production website")
+/Users/stephenabbot/projects/website_bittikens_com/TODO/z_continue_refactor.md:44:- `docs/operations.md`: All denverbytes references → bittikens (~11 replacements)
+/Users/stephenabbot/projects/website_bittikens_com/TODO/z_continue_refactor.md:45:- `docs/troubleshooting.md`: All denverbytes references → bittikens (~4 replacements)
+/Users/stephenabbot/projects/website_bittikens_com/TODO/z_continue_refactor.md:54:- Remaining "denverbytes" references are expected:
+/Users/stephenabbot/projects/website_bittikens_com/TODO/z_continue_refactor.md:55:  - `website-infrastructure.md` — intentionally lists denverbytes.com as "Production website"
+/Users/stephenabbot/projects/website_bittikens_com/TODO/z_continue_refactor.md:72:   This is the same account ID used by the denverbytes repo (confirmed via `gh variable list --repo stephenabbot/website_denverbytes_com`).
+/Users/stephenabbot/projects/website_bittikens_com/TODO/strategic-plan-v2.md:14:Stephen Abbot is a 20+ year infrastructure engineer with deep AWS expertise, enterprise-scale experience (800+ account org, Fortune 23 healthcare, 200+ engineering teams), and a demonstrated ability to identify and solve systemic technical debt. His professional presence — website (denverbytes.com), resume, and LinkedIn — does not communicate this effectively.
+/Users/stephenabbot/projects/website_bittikens_com/TODO/strategic-plan-v2.md:165:- Professional email at stabbot@denverbytes.com (email hosting project in progress — prioritized for completion)
+/Users/stephenabbot/projects/website_bittikens_com/TODO/strategic-plan-v2.md:224:Every claim on the resume should have a corresponding deep-dive available on the website. The resume is the summary; the website is the evidence. Add a line to the resume header: "Portfolio & Architecture Details: denverbytes.com"
+/Users/stephenabbot/projects/website_bittikens_com/TODO/strategic-plan-v2.md:238:Mirror the 60-second TDT narrative (§2.2) plus the AI positioning statement (§3.2). End with: "Portfolio and architecture details at denverbytes.com."
+/Users/stephenabbot/projects/website_bittikens_com/TODO/strategic-plan-v2.md:247:1. Architecture page (denverbytes.com/architecture)
+/Users/stephenabbot/projects/website_bittikens_com/TODO/strategic-plan-v2.md:299:| Cross-post to LinkedIn with hook | Stephen | Summary + "Read more at denverbytes.com/blog/[slug]" |
+/Users/stephenabbot/projects/website_bittikens_com/TODO/strategic-plan-v2.md:320:Both assessments flag the hotmail address. Stephen has a separate project in progress to enable email hosting on denverbytes.com. This should be prioritized for completion before Phase 1 CTA changes go live. The CTA can use placeholder text ("Professional inquiries: [coming soon]") if the email project is not complete by Phase 1 execution.
+/Users/stephenabbot/projects/website_bittikens_com/TODO/strategic-plan-v2.md:360:- Publish full post on denverbytes.com
+/Users/stephenabbot/projects/website_bittikens_com/TODO/strategic-plan-v2.md:421:- ~~**Professional email**~~: denverbytes.com email hosting project in progress, will be prioritized.
+/Users/stephenabbot/projects/website_bittikens_com/TODO/blog-topic-backlog.md:55:**Novel angle:** Not a tutorial -- a design philosophy piece. Every architectural decision for denverbytes.com was made with cost as a first-class constraint. S3 + CloudFront + Route53 = $3/month for a site that handles production traffic. The decisions that make this possible and the trade-offs accepted. Contrast with teams spending $500+/month on equivalent hosting because they didn't think about cost at design time.  
+/Users/stephenabbot/projects/website_bittikens_com/TODO/z_website_cleanup_02.md:3:Analysis performed 2026-02-09 by Claude Opus 4.6 against the denverbytes.com codebase.
+/Users/stephenabbot/projects/website_bittikens_com/src/content/work/website-infrastructure.md:44:- **denverbytes.com** - Production website
+/Users/stephenabbot/projects/website_bittikens_com/src/content/work/website-infrastructure.md:45:- **denverbites.com** - redirect to denverbytes.com
+
+--- stabbot matches (file:line:content) ---
+/Users/stephenabbot/projects/website_bittikens_com/TODO/z_continue_refactor.md:49:- Created `scripts/cloudfront-basic-auth.js` (CloudFront Function source, credentials: stabbot/changeme)
+/Users/stephenabbot/projects/website_bittikens_com/TODO/z_continue_refactor.md:97:   curl -I -u stabbot:changeme https://bittikens.com
+/Users/stephenabbot/projects/website_bittikens_com/TODO/z_continue_refactor.md:100:   curl -u stabbot:changeme https://bittikens.com/robots.txt
+/Users/stephenabbot/projects/website_bittikens_com/TODO/z_continue_refactor.md:108:- GitHub CLI is authenticated as `stabbotco1` (has repo + workflow scopes).
+/Users/stephenabbot/projects/website_bittikens_com/TODO/z_website_cleanup.md:109:📧 Professional Inquiries: stabbot@hotmail.com
+/Users/stephenabbot/projects/website_bittikens_com/TODO/z_website_cleanup.md:452:- Email: stabbot@hotmail.com (email icon)
+/Users/stephenabbot/projects/website_bittikens_com/TODO/strategic-plan-v2.md:165:- Professional email at stabbot@denverbytes.com (email hosting project in progress — prioritized for completion)
+/Users/stephenabbot/projects/website_bittikens_com/TODO/z_website_cleanup_02.md:46:**Current CTA:** "Interested in mentorship or community technology support?" -> `mailto:stabbot@hotmail.com`
+/Users/stephenabbot/projects/website_bittikens_com/scripts/cloudfront-basic-auth.js:2:// Credentials: stabbot:changeme
+/Users/stephenabbot/projects/website_bittikens_com/scripts/manage-cloudfront-auth.sh:239:    echo "Credentials: stabbot / changeme"
+/Users/stephenabbot/projects/website_bittikens_com/src/components/ContactCTA.astro:8:	<CallToAction href="mailto:stabbot@hotmail.com">
+
+--- All email addresses found ---
+/Users/stephenabbot/projects/website_bittikens_com/TODO/z_website_cleanup.md:109:📧 Professional Inquiries: stabbot@hotmail.com
+/Users/stephenabbot/projects/website_bittikens_com/TODO/z_website_cleanup.md:452:- Email: stabbot@hotmail.com (email icon)
+/Users/stephenabbot/projects/website_bittikens_com/TODO/strategic-plan-v2.md:165:- Professional email at stabbot@denverbytes.com (email hosting project in progress — prioritized for completion)
+/Users/stephenabbot/projects/website_bittikens_com/TODO/z_website_cleanup_02.md:46:**Current CTA:** "Interested in mentorship or community technology support?" -> `mailto:stabbot@hotmail.com`
+Binary file /Users/stephenabbot/projects/website_bittikens_com/public/assets/at-work.jpg matches
+/Users/stephenabbot/projects/website_bittikens_com/src/components/ContactCTA.astro:8:	<CallToAction href="mailto:stabbot@hotmail.com">
+/Users/stephenabbot/projects/website_bittikens_com/src/components/MainHead.astro:31:	"email": "abbotnh@yahoo.com",
+
+=== DONE ===

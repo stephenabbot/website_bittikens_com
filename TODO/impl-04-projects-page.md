@@ -1,3 +1,41 @@
+# Implementation 04: Projects Page — Table View
+**Depends on:** impl-01 (quick fixes), impl-06 (TDT page) and impl-05 (email handler) should be done before this, but the table can be built first with placeholder rows
+**Estimated session:** Short–Medium (1 hour)
+**Goal:** Replace the card grid work page with a grouped table that lets a scanner see all projects at a glance without scrolling through cards.
+
+---
+
+## Overview
+
+The current `work.astro` uses grouped card grids (3 groups, PortfolioPreview cards). This is replaced with a grouped table layout. Each row: **Project name** (linked) | **One-line description** | **GitHub** | **Status/Notes**.
+
+The Hero tagline changes to reflect the employer-value framing, not generic portfolio language.
+
+---
+
+## Project Inventory (Complete List)
+
+After impl-05 and impl-06, there will be 9 project content files:
+
+| Slug | Display Name | Group |
+|------|-------------|-------|
+| `tdt-technical-debt-tool` | Technical Debt Tool | Enterprise Tools |
+| `service-email-handler` | Email Handler | Enterprise Tools |
+| `foundation-terraform-bootstrap` | Terraform Bootstrap | Foundation |
+| `foundation-iam-deploy-roles` | IAM Deploy Roles | Foundation |
+| `service-observability-cloudtrail` | CloudTrail Observability | Services |
+| `service-ephemeral-splunk` | Ephemeral Splunk | Services |
+| `mypylogger` | Python Logger (mypylogger) | Tools |
+| `professional-website-platform` | Website Platform | Website |
+| `website-infrastructure` | Website Infrastructure | Website |
+
+---
+
+## Rewrite `src/pages/work.astro`
+
+Replace the entire file:
+
+```astro
 ---
 import ContactCTA from "../components/ContactCTA.astro";
 import Hero from "../components/Hero.astro";
@@ -120,9 +158,9 @@ import Icon from "../components/Icon.astro";
 				</table>
 			</section>
 
-			<!-- Services & Tools -->
+			<!-- Services -->
 			<section class="project-group">
-				<h2 class="group-title">Services &amp; Tools</h2>
+				<h2 class="group-title">Services & Tools</h2>
 				<p class="group-desc">
 					Specialized services and utilities: observability infrastructure,
 					ephemeral compute, and Python tooling.
@@ -379,6 +417,7 @@ import Icon from "../components/Icon.astro";
 		opacity: 1;
 	}
 
+	/* On small screens, hide description column to keep table readable */
 	@media (max-width: 49.9em) {
 		.project-desc {
 			display: none;
@@ -401,3 +440,23 @@ import Icon from "../components/Icon.astro";
 		}
 	}
 </style>
+```
+
+---
+
+## Notes
+- The GitHub URLs for `service-ephemeral-splunk`, `website-infrastructure`, and others should be verified against actual repo names on `stephenabbot`'s GitHub before publishing
+- TDT row has no GitHub link (employer IP — narrative only)
+- The `<PortfolioPreview>` component is no longer used on this page; it can remain in the codebase (it may still be used on the homepage)
+- Mobile view hides the description column — project name + links still scannable
+
+---
+
+## Acceptance Criteria
+- [ ] Page shows 4 grouped tables: Enterprise Tools | Foundation | Services & Tools | Website Platform
+- [ ] TDT row appears first with "Flagship" badge and links to `/work/tdt-technical-debt-tool/`
+- [ ] Email Handler row present
+- [ ] All existing 7 projects present with accurate one-line descriptions
+- [ ] GitHub links open in new tab
+- [ ] Mobile view is still scannable (hides description, shows name + links)
+- [ ] No card grid or `PortfolioPreview` components on this page

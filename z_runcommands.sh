@@ -1,3 +1,11 @@
+#!/usr/bin/env bash
+set -euo pipefail
+REPO="/Users/stephenabbot/projects/website_bittikens_com"
+cd "$REPO"
+
+echo "=== impl-04: Projects Page Table View ==="
+
+cat > src/pages/work.astro << 'ASTRO_EOF'
 ---
 import ContactCTA from "../components/ContactCTA.astro";
 import Hero from "../components/Hero.astro";
@@ -401,3 +409,29 @@ import Icon from "../components/Icon.astro";
 		}
 	}
 </style>
+ASTRO_EOF
+echo "work.astro written"
+
+echo ""
+echo "=== Verification ==="
+echo "--- 4 group sections ---"
+grep -c "class=\"project-group\"" src/pages/work.astro
+
+echo "--- 9 project rows (tr with project-name) ---"
+grep -c "class=\"project-name\"" src/pages/work.astro
+
+echo "--- Flagship badge on TDT ---"
+grep -n "Flagship" src/pages/work.astro
+
+echo "--- TDT has no GitHub link (employer IP) ---"
+grep -A5 "Technical Debt Tool" src/pages/work.astro | grep -i github || echo "clean — no GitHub link for TDT"
+
+echo "--- GitHub links open in new tab ---"
+grep -c 'target="_blank"' src/pages/work.astro
+
+echo ""
+echo "=== Test build ==="
+npm run build 2>&1 | grep -E "error|Error|built|Complete|✓" | tail -10
+
+echo ""
+echo "=== All done ==="

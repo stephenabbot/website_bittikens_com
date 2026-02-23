@@ -9,27 +9,33 @@ This project was copied from the denverbytes.com website repo to a new GitHub re
 All file edits are done. No code changes remain.
 
 ### Step 1: Centralized site config - DONE
+
 - Created `src/config.ts` with `SITE_CONFIG` constants (domain, siteUrl, repoName, repoUrl)
 
 ### Step 2: Build/config files - DONE
+
 - `config.env`: `DOMAIN_NAME=bittikens.com`, `GOOGLE_SEARCH_CONSOLE_TXT=` (empty)
 - `astro.config.mjs`: `site: 'https://bittikens.com'`
 - `package.json`: `"name": "website_bittikens_com"`
 - NOTE: `npm install` was NOT run separately — deploy.sh handles this automatically
 
 ### Step 3: GitHub Actions workflows - DONE
+
 - `.github/workflows/deploy.yml`: role changed to `gharole-website_bittikens_com-prd`
 - `.github/workflows/destroy.yml`: same role change
 
 ### Step 4: Astro components - DONE
+
 - `src/components/MainHead.astro`: Person schema URL now uses `Astro.site?.href ?? "https://bittikens.com"`
 - `src/components/Nav.astro`: Fixed "LinkeIn" typo → "LinkedIn"
 
 ### Step 5: Dynamic robots.txt - DONE
+
 - Deleted `public/robots.txt`
 - Created `src/pages/robots.txt.ts` as Astro API endpoint (reads site URL from Astro config)
 
 ### Step 6: Content/doc references - DONE
+
 - `src/pages/architecture.astro`: GitHub link → `website_bittikens_com`
 - `src/content/resume/resume.md`: website → `https://bittikens.com`
 - `src/content/work/website-infrastructure.md`: Reordered domains (bittikens.com as "This website", denverbytes.com as "Production website")
@@ -39,10 +45,12 @@ All file edits are done. No code changes remain.
 - `docs/troubleshooting.md`: All denverbytes references → bittikens (~4 replacements)
 
 ### Step 7: CloudFront basic auth scripts - DONE
+
 - Created `scripts/cloudfront-basic-auth.js` (CloudFront Function source, credentials: stabbot/changeme)
 - Created `scripts/manage-cloudfront-auth.sh` (enable/disable/status subcommands, chmod +x applied)
 
 ### Step 8: Verification grep - DONE
+
 - Remaining "denverbytes" references are expected:
   - `website-infrastructure.md` — intentionally lists denverbytes.com as "Production website"
   - `TODO/` files — not deployed
@@ -56,18 +64,23 @@ Deploy failed because the `AWS_ACCOUNT_ID` GitHub variable is not set on the `st
 ### What needs to happen
 
 1. **Set the GitHub variable** (one command):
+
    ```bash
    gh variable set AWS_ACCOUNT_ID --body "694394480102" --repo stephenabbot/website_bittikens_com
    ```
+
    This is the same account ID used by the denverbytes repo (confirmed via `gh variable list --repo stephenabbot/website_denverbytes_com`).
 
 2. **Run deploy**:
+
    ```bash
    ./scripts/deploy.sh
    ```
+
    This handles npm install, build, S3 upload, CloudFront invalidation, and verification.
 
 3. **Enable basic auth** (after deploy succeeds):
+
    ```bash
    ./scripts/manage-cloudfront-auth.sh enable
    ```
@@ -75,6 +88,7 @@ Deploy failed because the `AWS_ACCOUNT_ID` GitHub variable is not set on the `st
 4. **Wait ~3 minutes** for CloudFront propagation.
 
 5. **Test site access**:
+
    ```bash
    # Should return 401 without auth
    curl -I https://bittikens.com
