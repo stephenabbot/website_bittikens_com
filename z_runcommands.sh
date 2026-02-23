@@ -3,435 +3,127 @@ set -euo pipefail
 REPO="/Users/stephenabbot/projects/website_bittikens_com"
 cd "$REPO"
 
-echo "=== impl-04: Projects Page Table View ==="
+echo "=== Nav.astro: Fix dropdown bugs ==="
 
-cat > src/pages/work.astro << 'ASTRO_EOF'
----
-import ContactCTA from "../components/ContactCTA.astro";
-import Hero from "../components/Hero.astro";
-import BaseLayout from "../layouts/BaseLayout.astro";
-import Icon from "../components/Icon.astro";
----
+python3 - << 'PYEOF'
+import pathlib
+f = pathlib.Path('src/components/Nav.astro')
+t = f.read_text()
 
-<BaseLayout
-	title="Projects | Stephen Abbot"
-	description="AWS infrastructure projects spanning enterprise tooling, foundation infrastructure, observability services, and platform engineering. Each project is live, documented, and publicly available."
->
-	<div class="stack gap-20">
-		<main class="wrapper stack gap-12">
-			<Hero
-				title="Projects"
-				tagline="Live, documented infrastructure. Each project solves a real problem — the same class of problems that appear in enterprise AWS environments at scale."
-				align="start"
-			/>
+# Bug 1 fix: add display:none as default mobile state for .menu-content
+# The @media (min-width: 50em) block already sets display:contents — this just
+# makes mobile start hidden so the library's hidden-class toggle works correctly.
+old = """\t.menu-content {
+		position: absolute;
+		left: 0;
+		right: 0;
+		background-color: var(--gray-999);
+		border-bottom: 1px solid var(--gray-800);
+		border-radius: 0 0 0.75rem 0.75rem;
+		box-shadow: var(--shadow-lg);
+	}"""
+new = """\t.menu-content {
+		display: none;
+		position: absolute;
+		left: 0;
+		right: 0;
+		background-color: var(--gray-999);
+		border-bottom: 1px solid var(--gray-800);
+		border-radius: 0 0 0.75rem 0.75rem;
+		box-shadow: var(--shadow-lg);
+	}"""
+assert old in t, "Bug1 target not found"
+t = t.replace(old, new)
 
-			<!-- Enterprise Tools -->
-			<section class="project-group">
-				<h2 class="group-title">Enterprise Tools</h2>
-				<p class="group-desc">
-					Projects addressing problems at organizational scale: multi-account visibility,
-					cost analysis, security findings, and operational workflows.
-				</p>
-				<table class="project-table">
-					<thead>
-						<tr>
-							<th>Project</th>
-							<th>Description</th>
-							<th class="col-links">Links</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr class="featured-row">
-							<td class="project-name">
-								<a href="/work/tdt-technical-debt-tool/">Technical Debt Tool</a>
-								<span class="badge">Flagship</span>
-							</td>
-							<td class="project-desc">
-								Programmatic analysis platform scanning AWS accounts for phantom resources,
-								security misconfigurations, IAM overprovisioning, and cost waste.
-								Deployed across 40+ accounts in an 800+ account enterprise org.
-							</td>
-							<td class="project-links-cell">
-								<a href="/work/tdt-technical-debt-tool/" class="btn-link">Case Study</a>
-							</td>
-						</tr>
-						<tr>
-							<td class="project-name">
-								<a href="/work/service-email-handler/">Email Handler</a>
-							</td>
-							<td class="project-desc">
-								AWS-native email pipeline: SES receipt, Lambda-based spam filtering,
-								auto-acknowledgment, reply routing, and DynamoDB conversation tracking
-								for structured job-search contact management.
-							</td>
-							<td class="project-links-cell">
-								<a href="/work/service-email-handler/" class="btn-link">Details</a>
-								<a href="https://github.com/stephenabbot/service-email-handler" target="_blank" rel="noopener" class="btn-link btn-link--ghost">
-									<Icon icon="github-logo" size="1em" /> GitHub
-								</a>
-							</td>
-						</tr>
-					</tbody>
-				</table>
-			</section>
+# Bug 2 fix: replace plain <div class="dropdown-menu"> with <DropdownItems class="dropdown-menu">
+# so the library applies astronav-dropdown dropdown-toggle hidden classes it needs
+old2 = """\t\t\t\t\t<DropdownItems>
+							<div class="dropdown-menu">"""
+new2 = """\t\t\t\t\t<DropdownItems class="dropdown-menu">
+							<div class="dropdown-inner">"""
+assert old2 in t, "Bug2 open tag not found"
+t = t.replace(old2, new2)
 
-			<!-- Foundation Infrastructure -->
-			<section class="project-group">
-				<h2 class="group-title">Foundation Infrastructure</h2>
-				<p class="group-desc">
-					Reusable infrastructure primitives that solve the bootstrap problem:
-					how do you create Terraform state storage before Terraform exists,
-					and how do you deploy securely without long-lived credentials?
-				</p>
-				<table class="project-table">
-					<thead>
-						<tr>
-							<th>Project</th>
-							<th>Description</th>
-							<th class="col-links">Links</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-							<td class="project-name">
-								<a href="/work/foundation-terraform-bootstrap/">Terraform Bootstrap</a>
-							</td>
-							<td class="project-desc">
-								CloudFormation-managed S3 state bucket, DynamoDB lock table, and OIDC
-								provider. Solves the circular dependency of managing Terraform's own
-								backend with Terraform.
-							</td>
-							<td class="project-links-cell">
-								<a href="/work/foundation-terraform-bootstrap/" class="btn-link">Details</a>
-								<a href="https://github.com/stephenabbot/foundation-terraform-bootstrap" target="_blank" rel="noopener" class="btn-link btn-link--ghost">
-									<Icon icon="github-logo" size="1em" /> GitHub
-								</a>
-							</td>
-						</tr>
-						<tr>
-							<td class="project-name">
-								<a href="/work/foundation-iam-deploy-roles/">IAM Deploy Roles</a>
-							</td>
-							<td class="project-desc">
-								Terraform-managed IAM roles for GitHub Actions OIDC authentication.
-								Eliminates static credentials from CI/CD pipelines using short-lived
-								tokens scoped per repository and environment.
-							</td>
-							<td class="project-links-cell">
-								<a href="/work/foundation-iam-deploy-roles/" class="btn-link">Details</a>
-								<a href="https://github.com/stephenabbot/foundation-iam-deploy-roles" target="_blank" rel="noopener" class="btn-link btn-link--ghost">
-									<Icon icon="github-logo" size="1em" /> GitHub
-								</a>
-							</td>
-						</tr>
-					</tbody>
-				</table>
-			</section>
+old3 = """\t\t\t\t\t\t</div>
+						</DropdownItems>"""
+new3 = """\t\t\t\t\t\t</div>
+						</DropdownItems>"""
+# closing tags are the same — no change needed there
 
-			<!-- Services & Tools -->
-			<section class="project-group">
-				<h2 class="group-title">Services &amp; Tools</h2>
-				<p class="group-desc">
-					Specialized services and utilities: observability infrastructure,
-					ephemeral compute, and Python tooling.
-				</p>
-				<table class="project-table">
-					<thead>
-						<tr>
-							<th>Project</th>
-							<th>Description</th>
-							<th class="col-links">Links</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-							<td class="project-name">
-								<a href="/work/service-observability-cloudtrail/">CloudTrail Observability</a>
-							</td>
-							<td class="project-desc">
-								CloudFormation infrastructure for centralized AWS audit logging.
-								Establishes account-level event visibility as a compliance and
-								forensic baseline.
-							</td>
-							<td class="project-links-cell">
-								<a href="/work/service-observability-cloudtrail/" class="btn-link">Details</a>
-								<a href="https://github.com/stephenabbot/service-observability-cloudtrail" target="_blank" rel="noopener" class="btn-link btn-link--ghost">
-									<Icon icon="github-logo" size="1em" /> GitHub
-								</a>
-							</td>
-						</tr>
-						<tr>
-							<td class="project-name">
-								<a href="/work/service-ephemeral-splunk/">Ephemeral Splunk</a>
-							</td>
-							<td class="project-desc">
-								Automated infrastructure for deploying and destroying Splunk Enterprise
-								instances on demand. Purpose-built for log analysis workflows that do
-								not justify a persistent deployment.
-							</td>
-							<td class="project-links-cell">
-								<a href="/work/service-ephemeral-splunk/" class="btn-link">Details</a>
-								<a href="https://github.com/stephenabbot/service-ephemeral-splunk" target="_blank" rel="noopener" class="btn-link btn-link--ghost">
-									<Icon icon="github-logo" size="1em" /> GitHub
-								</a>
-							</td>
-						</tr>
-						<tr>
-							<td class="project-name">
-								<a href="/work/mypylogger/">mypylogger</a>
-							</td>
-							<td class="project-desc">
-								Zero-dependency Python logging library with clean JSON output and
-								sensible defaults. Extracted from production Lambda code to be
-								reusable across projects.
-							</td>
-							<td class="project-links-cell">
-								<a href="/work/mypylogger/" class="btn-link">Details</a>
-								<a href="https://github.com/stephenabbot/mypylogger" target="_blank" rel="noopener" class="btn-link btn-link--ghost">
-									<Icon icon="github-logo" size="1em" /> GitHub
-								</a>
-							</td>
-						</tr>
-					</tbody>
-				</table>
-			</section>
-
-			<!-- Website Platform -->
-			<section class="project-group">
-				<h2 class="group-title">Website Platform</h2>
-				<p class="group-desc">
-					The infrastructure and application behind this site.
-					Production hosting at ~$3/month using S3, CloudFront, and Route53.
-				</p>
-				<table class="project-table">
-					<thead>
-						<tr>
-							<th>Project</th>
-							<th>Description</th>
-							<th class="col-links">Links</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-							<td class="project-name">
-								<a href="/work/professional-website-platform/">Website Platform</a>
-							</td>
-							<td class="project-desc">
-								Astro-based professional website with GitHub Actions CI/CD, OIDC
-								deploy authentication, automated CloudFront invalidation, and
-								full infrastructure as code.
-							</td>
-							<td class="project-links-cell">
-								<a href="/work/professional-website-platform/" class="btn-link">Details</a>
-								<a href="https://github.com/stephenabbot/website_bittikens_com" target="_blank" rel="noopener" class="btn-link btn-link--ghost">
-									<Icon icon="github-logo" size="1em" /> GitHub
-								</a>
-							</td>
-						</tr>
-						<tr>
-							<td class="project-name">
-								<a href="/work/website-infrastructure/">Website Infrastructure</a>
-							</td>
-							<td class="project-desc">
-								Multi-domain static hosting infrastructure: S3 with versioning,
-								CloudFront distribution, ACM certificate, and Route53 DNS.
-								Terraform-managed with automated deploy pipeline.
-							</td>
-							<td class="project-links-cell">
-								<a href="/work/website-infrastructure/" class="btn-link">Details</a>
-								<a href="https://github.com/stephenabbot/website-infrastructure" target="_blank" rel="noopener" class="btn-link btn-link--ghost">
-									<Icon icon="github-logo" size="1em" /> GitHub
-								</a>
-							</td>
-						</tr>
-					</tbody>
-				</table>
-			</section>
-
-		</main>
-		<ContactCTA />
-	</div>
-</BaseLayout>
-
-<style>
-	.project-group {
+# Also update the CSS: .dropdown-menu selector now targets the DropdownItems wrapper,
+# .dropdown-inner handles the inner panel styling
+old4 = """\t.dropdown-menu {
+		background-color: var(--gray-999);
+		border: 1px solid var(--gray-800);
+		border-radius: 0.75rem;
+		padding: 0.75rem;
+		margin-top: 0.25rem;
+		min-width: 14rem;
+		box-shadow: var(--shadow-lg);
 		display: flex;
 		flex-direction: column;
-		gap: 1rem;
+		gap: 0.5rem;
+	}"""
+new4 = """\t.dropdown-menu {
+		margin-top: 0.25rem;
 	}
 
-	.group-title {
-		font-size: var(--text-2xl);
-		color: var(--gray-0);
-	}
-
-	.group-desc {
-		font-size: var(--text-md);
-		color: var(--gray-400);
-		line-height: 1.6;
-		max-width: 65ch;
-	}
-
-	.project-table {
-		width: 100%;
-		border-collapse: collapse;
-		font-size: var(--text-sm);
-	}
-
-	.project-table thead th {
-		text-align: left;
-		padding: 0.5rem 0.75rem;
-		color: var(--gray-500);
-		font-weight: 500;
-		border-bottom: 1px solid var(--gray-800);
-		font-size: var(--text-xs, 0.75rem);
-		text-transform: uppercase;
-		letter-spacing: 0.06em;
-	}
-
-	.project-table tbody tr {
-		border-bottom: 1px solid var(--gray-800);
-		transition: background-color var(--theme-transition);
-	}
-
-	.project-table tbody tr:last-child {
-		border-bottom: none;
-	}
-
-	.project-table tbody tr:hover {
-		background-color: var(--accent-subtle-overlay);
-	}
-
-	.project-table td {
-		padding: 0.875rem 0.75rem;
-		vertical-align: top;
-	}
-
-	.project-name {
-		white-space: nowrap;
-		width: 14rem;
-	}
-
-	.project-name a {
-		color: var(--gray-0);
-		text-decoration: none;
-		font-weight: 500;
-	}
-
-	.project-name a:hover {
-		color: var(--accent-regular);
-	}
-
-	.badge {
-		display: inline-block;
-		margin-left: 0.5rem;
-		padding: 0.1rem 0.5rem;
-		background: var(--accent-regular);
-		color: var(--accent-text-over);
-		border-radius: 999rem;
-		font-size: 0.65rem;
-		font-weight: 600;
-		text-transform: uppercase;
-		letter-spacing: 0.06em;
-		vertical-align: middle;
-	}
-
-	.featured-row {
-		background: var(--gradient-subtle);
-	}
-
-	.project-desc {
-		color: var(--gray-300);
-		line-height: 1.5;
-	}
-
-	.col-links {
-		width: 10rem;
-	}
-
-	.project-links-cell {
+	.dropdown-inner {
+		background-color: var(--gray-999);
+		border: 1px solid var(--gray-800);
+		border-radius: 0.75rem;
+		padding: 0.75rem;
+		min-width: 14rem;
+		box-shadow: var(--shadow-lg);
 		display: flex;
 		flex-direction: column;
-		gap: 0.375rem;
-		align-items: flex-start;
-	}
+		gap: 0.5rem;
+	}"""
+assert old4 in t, "Bug2 CSS target not found"
+t = t.replace(old4, new4)
 
-	.btn-link {
-		display: inline-flex;
-		align-items: center;
-		gap: 0.25rem;
-		padding: 0.25rem 0.625rem;
-		border-radius: 999rem;
-		font-size: var(--text-xs, 0.75rem);
-		font-weight: 500;
-		text-decoration: none;
-		background: var(--accent-regular);
-		color: var(--accent-text-over);
-		white-space: nowrap;
-		transition: opacity var(--theme-transition);
-	}
-
-	.btn-link:hover {
-		opacity: 0.85;
-	}
-
-	.btn-link--ghost {
-		background: transparent;
-		border: 1px solid var(--gray-700);
-		color: var(--gray-300);
-	}
-
-	.btn-link--ghost:hover {
-		border-color: var(--accent-dark);
-		color: var(--gray-100);
-		opacity: 1;
-	}
-
-	@media (max-width: 49.9em) {
-		.project-desc {
-			display: none;
+# Desktop: update .dropdown-menu positioning (the DropdownItems wrapper, not the inner panel)
+old5 = """\t\t.dropdown-menu {
+			position: absolute;
+			top: calc(100% + 0.5rem);
+			left: 50%;
+			transform: translateX(-50%);
+			z-index: 100;
+			width: 16rem;
+		}"""
+new5 = """\t\t.dropdown-menu {
+			position: absolute;
+			top: calc(100% + 0.5rem);
+			left: 50%;
+			transform: translateX(-50%);
+			z-index: 100;
+			width: 16rem;
 		}
-		.project-name {
-			width: auto;
-		}
-		.col-links {
-			width: auto;
-		}
-		.project-links-cell {
-			flex-direction: row;
-			flex-wrap: wrap;
-		}
-	}
 
-	@media (min-width: 50em) {
-		.group-title {
-			font-size: var(--text-3xl);
-		}
-	}
-</style>
-ASTRO_EOF
-echo "work.astro written"
+		.dropdown-inner {
+			width: 100%;
+		}"""
+assert old5 in t, "Bug2 desktop CSS target not found"
+t = t.replace(old5, new5)
+
+f.write_text(t)
+print("Nav.astro patched successfully")
+PYEOF
 
 echo ""
 echo "=== Verification ==="
-echo "--- 4 group sections ---"
-grep -c "class=\"project-group\"" src/pages/work.astro
+echo "--- Bug 1: menu-content has display:none ---"
+grep -A8 '\.menu-content {' src/components/Nav.astro | head -10
 
-echo "--- 9 project rows (tr with project-name) ---"
-grep -c "class=\"project-name\"" src/pages/work.astro
+echo "--- Bug 2: DropdownItems has class prop ---"
+grep "DropdownItems" src/components/Nav.astro
 
-echo "--- Flagship badge on TDT ---"
-grep -n "Flagship" src/pages/work.astro
-
-echo "--- TDT has no GitHub link (employer IP) ---"
-grep -A5 "Technical Debt Tool" src/pages/work.astro | grep -i github || echo "clean — no GitHub link for TDT"
-
-echo "--- GitHub links open in new tab ---"
-grep -c 'target="_blank"' src/pages/work.astro
+echo "--- Bug 2: no bare <div class=\"dropdown-menu\"> ---"
+grep '<div class="dropdown-menu">' src/components/Nav.astro || echo "clean — no bare dropdown-menu div"
 
 echo ""
 echo "=== Test build ==="
-npm run build 2>&1 | grep -E "error|Error|built|Complete|✓" | tail -10
+npm run build 2>&1 | grep -E "error|Error|warn|built|Complete|✓" | tail -10
 
 echo ""
 echo "=== All done ==="

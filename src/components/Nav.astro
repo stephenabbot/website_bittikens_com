@@ -90,8 +90,8 @@ const isCurrentPage = (href: string) => {
 						>
 							Projects <span class="dropdown-arrow">▾</span>
 						</button>
-						<DropdownItems>
-							<div class="dropdown-menu">
+						<DropdownItems class="dropdown-menu">
+							<div class="dropdown-inner">
 								{projectGroups.map((group) => (
 									<div class="dropdown-group">
 										<div class="dropdown-group-label">{group.label}</div>
@@ -186,6 +186,7 @@ const isCurrentPage = (href: string) => {
 	}
 
 	.menu-content {
+		display: none;
 		position: absolute;
 		left: 0;
 		right: 0;
@@ -236,11 +237,14 @@ const isCurrentPage = (href: string) => {
 	}
 
 	.dropdown-menu {
+		margin-top: 0.25rem;
+	}
+
+	.dropdown-inner {
 		background-color: var(--gray-999);
 		border: 1px solid var(--gray-800);
 		border-radius: 0.75rem;
 		padding: 0.75rem;
-		margin-top: 0.25rem;
 		min-width: 14rem;
 		box-shadow: var(--shadow-lg);
 		display: flex;
@@ -410,6 +414,10 @@ const isCurrentPage = (href: string) => {
 			transform: translateX(-50%);
 			z-index: 100;
 			width: 16rem;
+		}
+
+		.dropdown-inner {
+			width: 100%;
 		}
 
 		.menu-footer {
