@@ -13,7 +13,7 @@ import Icon from "../components/Icon.astro";
 		<main class="wrapper stack gap-12">
 			<Hero
 				title="Projects"
-				tagline="Live, documented infrastructure. Each project solves a real problem — the same class of problems that appear in enterprise AWS environments at scale."
+				tagline="These projects form a cohesive platform for AWS infrastructure — from account bootstrapping through application deployment. Every project is live, documented, and publicly available."
 				align="start"
 			/>
 
@@ -41,7 +41,8 @@ import Icon from "../components/Icon.astro";
 							<td class="project-desc">
 								Programmatic analysis platform scanning AWS accounts for phantom resources,
 								security misconfigurations, IAM overprovisioning, and cost waste.
-								Deployed across 40+ accounts in an 800+ account enterprise org.
+								Deployed across 40+ accounts in an 800+ account org.
+								<em class="outcome">Outcome: centralized visibility where none existed.</em>
 							</td>
 							<td class="project-links-cell">
 								<a href="/work/tdt-technical-debt-tool/" class="btn-link">Case Study</a>
@@ -53,8 +54,8 @@ import Icon from "../components/Icon.astro";
 							</td>
 							<td class="project-desc">
 								AWS-native email pipeline: SES receipt, Lambda-based spam filtering,
-								auto-acknowledgment, reply routing, and DynamoDB conversation tracking
-								for structured job-search contact management.
+								auto-acknowledgment, reply routing, and DynamoDB conversation tracking.
+								<em class="outcome">Outcome: zero-maintenance contact management at pennies/month.</em>
 							</td>
 							<td class="project-links-cell">
 								<a href="/work/service-email-handler/" class="btn-link">Details</a>
@@ -92,6 +93,7 @@ import Icon from "../components/Icon.astro";
 								CloudFormation-managed S3 state bucket, DynamoDB lock table, and OIDC
 								provider. Solves the circular dependency of managing Terraform's own
 								backend with Terraform.
+								<em class="outcome">Outcome: repeatable account bootstrapping in minutes.</em>
 							</td>
 							<td class="project-links-cell">
 								<a href="/work/foundation-terraform-bootstrap/" class="btn-link">Details</a>
@@ -108,6 +110,7 @@ import Icon from "../components/Icon.astro";
 								Terraform-managed IAM roles for GitHub Actions OIDC authentication.
 								Eliminates static credentials from CI/CD pipelines using short-lived
 								tokens scoped per repository and environment.
+								<em class="outcome">Outcome: zero stored secrets across all deploy pipelines.</em>
 							</td>
 							<td class="project-links-cell">
 								<a href="/work/foundation-iam-deploy-roles/" class="btn-link">Details</a>
@@ -144,6 +147,7 @@ import Icon from "../components/Icon.astro";
 								CloudFormation infrastructure for centralized AWS audit logging.
 								Establishes account-level event visibility as a compliance and
 								forensic baseline.
+								<em class="outcome">Outcome: complete API audit trail for governance and incident response.</em>
 							</td>
 							<td class="project-links-cell">
 								<a href="/work/service-observability-cloudtrail/" class="btn-link">Details</a>
@@ -160,6 +164,7 @@ import Icon from "../components/Icon.astro";
 								Automated infrastructure for deploying and destroying Splunk Enterprise
 								instances on demand. Purpose-built for log analysis workflows that do
 								not justify a persistent deployment.
+								<em class="outcome">Outcome: zero idle costs for intermittent analysis needs.</em>
 							</td>
 							<td class="project-links-cell">
 								<a href="/work/service-ephemeral-splunk/" class="btn-link">Details</a>
@@ -176,6 +181,7 @@ import Icon from "../components/Icon.astro";
 								Zero-dependency Python logging library with clean JSON output and
 								sensible defaults. Extracted from production Lambda code to be
 								reusable across projects.
+								<em class="outcome">Outcome: consistent structured logging across all Python services.</em>
 							</td>
 							<td class="project-links-cell">
 								<a href="/work/mypylogger/" class="btn-link">Details</a>
@@ -209,9 +215,10 @@ import Icon from "../components/Icon.astro";
 								<a href="/work/professional-website-platform/">Website Platform</a>
 							</td>
 							<td class="project-desc">
-								Astro-based professional website with GitHub Actions CI/CD, OIDC
-								deploy authentication, automated CloudFront invalidation, and
-								full infrastructure as code.
+								Astro-based website with GitHub Actions CI/CD, OIDC deploy
+								authentication, automated CloudFront invalidation, and full
+								infrastructure as code.
+								<em class="outcome">Outcome: push-to-deploy with zero manual steps.</em>
 							</td>
 							<td class="project-links-cell">
 								<a href="/work/professional-website-platform/" class="btn-link">Details</a>
@@ -228,6 +235,7 @@ import Icon from "../components/Icon.astro";
 								Multi-domain static hosting infrastructure: S3 with versioning,
 								CloudFront distribution, ACM certificate, and Route53 DNS.
 								Terraform-managed with automated deploy pipeline.
+								<em class="outcome">Outcome: production hosting at ~$3/month with global CDN.</em>
 							</td>
 							<td class="project-links-cell">
 								<a href="/work/website-infrastructure/" class="btn-link">Details</a>
@@ -335,6 +343,14 @@ import Icon from "../components/Icon.astro";
 	.project-desc {
 		color: var(--gray-300);
 		line-height: 1.5;
+	}
+
+	.outcome {
+		display: block;
+		margin-top: 0.375rem;
+		font-style: italic;
+		color: var(--accent-regular);
+		font-size: 0.8125rem;
 	}
 
 	.col-links {

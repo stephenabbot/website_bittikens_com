@@ -27,7 +27,7 @@ const projects = (await getCollection("work"))
 			<header class="hero">
 				<Hero
 					title="Hello, I'm Stephen Abbot"
-					tagline="Infrastructure platform engineer. I find what's broken at enterprise scale, build tools to make it visible, and design solutions that are defensible, cost-efficient, and operationally transparent."
+					tagline="Infrastructure platform engineer. I find what's broken at scale, build tools to make it visible, and design solutions that are cost-efficient and operationally transparent."
 					align="start"
 				>
 					<div class="roles">
@@ -83,15 +83,22 @@ const projects = (await getCollection("work"))
 				<div class="flagship-card">
 					<div class="flagship-label">Enterprise AWS — Technical Debt Tool</div>
 					<h4 class="flagship-title">Programmatic Account Analysis at Scale</h4>
+					<p class="flagship-subtitle">Enterprise account analysis and governance platform for multi-account AWS environments.</p>
+					<div class="flagship-scope">
+						<span>800+ account org</span>
+						<span>40+ accounts analyzed</span>
+						<span>200+ teams informed</span>
+					</div>
 					<p class="flagship-body">
-						In a Fortune 23 healthcare company with 800+ AWS accounts and 200+ engineering teams,
-						most teams lacked the expertise to evaluate whether their infrastructure was cost-efficient,
-						secure, or compliant. No centralized visibility existed. I designed and built a
-						Python/PostgreSQL platform that programmatically analyzes AWS account configurations —
-						identifying phantom resources, orphaned infrastructure, security misconfigurations,
-						IAM overprovisioning, and cost optimization opportunities. Deployed across 40+ accounts.
+						Most teams in a Fortune 23 healthcare company lacked the expertise to evaluate whether
+						their infrastructure was cost-efficient, secure, or compliant. No centralized visibility existed.
 					</p>
 					<p class="flagship-body">
+						I designed and built a Python/PostgreSQL platform that programmatically analyzes AWS
+						account configurations — identifying phantom resources, orphaned infrastructure, security
+						misconfigurations, IAM overprovisioning, and cost optimization opportunities.
+					</p>
+					<p class="flagship-body flagship-status">
 						Currently rebuilding with architectural improvements informed by v1 lessons.
 					</p>
 					<a href="/work/tdt-technical-debt-tool/" class="flagship-link">
@@ -106,8 +113,8 @@ const projects = (await getCollection("work"))
 				<header class="section-header stack gap-2 lg:gap-4">
 					<h3>Supporting Projects</h3>
 					<p>
-						Foundation infrastructure, observability services, and reusable tooling.
-						Source code linked from each project page.
+						Selected projects from my catalog — foundation infrastructure, observability
+						services, and reusable tooling. Each solves a specific operational problem.
 					</p>
 				</header>
 
@@ -142,8 +149,8 @@ const projects = (await getCollection("work"))
 				<header class="section-header stack gap-2 lg:gap-4">
 					<h3>Recent Thinking</h3>
 					<p>
-						Observations from working inside 800+ account enterprise infrastructure.
-						Not repackaged documentation — direct experience.
+						Here's how these problems look in practice. Observations from working
+						inside 800+ account infrastructure — not repackaged documentation.
 					</p>
 				</header>
 				<div class="blog-showcase">
@@ -176,6 +183,18 @@ const projects = (await getCollection("work"))
 					</CallToAction>
 				</div>
 			</section>
+		</div>
+
+		<!-- Next Steps -->
+		<div class="wrapper">
+			<nav class="next-steps">
+				<span class="next-steps-label">Next steps</span>
+				<div class="next-steps-links">
+					<a href="/work/" class="next-step">1. Review projects</a>
+					<a href="/experience/" class="next-step">2. Review experience</a>
+					<a href="mailto:stephen.abbot@denverbytes.com" class="next-step">3. Get in touch</a>
+				</div>
+			</nav>
 		</div>
 
 		<ContactCTA />
@@ -380,7 +399,28 @@ const projects = (await getCollection("work"))
 	.flagship-title {
 		font-size: var(--text-2xl);
 		color: var(--gray-0);
+		margin-bottom: 0.5rem;
+	}
+
+	.flagship-subtitle {
+		color: var(--gray-300);
+		font-size: var(--text-md);
 		margin-bottom: 1rem;
+	}
+
+	.flagship-scope {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.5rem 1.5rem;
+		margin-bottom: 1.25rem;
+		font-size: var(--text-sm);
+		font-weight: 500;
+		color: var(--accent-regular);
+	}
+
+	.flagship-status {
+		font-style: italic;
+		color: var(--gray-400);
 	}
 
 	.flagship-body {
@@ -477,6 +517,45 @@ const projects = (await getCollection("work"))
 			border-radius: 1.5rem;
 			height: 9.5rem;
 		}
+	}
+
+	/* Next steps strip */
+	.next-steps {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 1rem;
+		padding: 1.5rem 2rem;
+		border: 1px solid var(--gray-800);
+		border-radius: 1rem;
+		background: var(--gradient-subtle);
+	}
+
+	.next-steps-label {
+		font-size: var(--text-sm);
+		color: var(--gray-500);
+		text-transform: uppercase;
+		letter-spacing: 0.08em;
+		font-weight: 500;
+	}
+
+	.next-steps-links {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 1rem 2rem;
+		justify-content: center;
+	}
+
+	.next-step {
+		color: var(--accent-regular);
+		text-decoration: none;
+		font-weight: 500;
+		font-size: var(--text-md);
+		transition: color var(--theme-transition);
+	}
+
+	.next-step:hover {
+		color: var(--accent-dark);
 	}
 
 	/* Hero email link */

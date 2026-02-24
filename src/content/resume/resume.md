@@ -39,7 +39,7 @@ Enabled consistent deployment of AWS Recommended and custom alarms to support re
 ### Site Reliability Engineer - Smartly
 **Remote | Mar 2022 - Nov 2023**
 
-Provided thought leadership and collaborated closely with AI-focused engineering teams as the AWS subject matter expert, guiding infrastructure modernization and observability improvements to meet enterprise-grade expectations for reliability, performance, and scalability - aligning with AWS Well-Architected principles.
+Collaborated with AI-focused engineering teams as the AWS subject matter expert, guiding infrastructure modernization and observability improvements for reliability, performance, and scalability — aligning with AWS Well-Architected principles.
 
 - **Containerization and Cloud Migration**: Architected and executed migration from Elastic Beanstalk to a container-based microservices architecture leveraging Lambda, ECS, EKS, reducing cost, improving system scalability, flexibility, and reducing operational maintenance effort
 - **Database Performance Optimization**: Identified critical PostgreSQL performance bottlenecks through detailed analysis, facilitating a strategic migration to Amazon Aurora for enhanced scalability and reliability
