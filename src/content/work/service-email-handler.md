@@ -1,11 +1,12 @@
 ---
-title: Service Email Handler
+title: Email Handler
 publishDate: 2026-01-15 00:00:00
 img: /assets/stock-2.jpg
 img_alt: AWS email pipeline with Lambda and DynamoDB
 description: |
-  AWS-native email pipeline: spam filtering, auto-acknowledgment, reply routing,
-  and DynamoDB conversation tracking for structured contact management.
+  A small AWS service that receives contact emails, enriches them with context, and
+  forwards them to the right inboxes using SES and Lambda. Zero-maintenance contact
+  management at pennies per month.
 tags:
   - AWS
   - Lambda

@@ -13,9 +13,16 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import { Image } from "astro:assets";
 import portraitImage from "../assets/portrait.jpg";
 
-const projects = (await getCollection("work"))
-	.sort((a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf())
-	.slice(0, 4);
+const allProjects = await getCollection("work");
+const featuredIds = [
+	"foundation-terraform-bootstrap",
+	"website-infrastructure",
+	"service-email-handler",
+	"service-observability-cloudtrail",
+];
+const projects = featuredIds
+	.map((id) => allProjects.find((p) => p.id === id))
+	.filter(Boolean);
 ---
 
 <BaseLayout
@@ -27,7 +34,7 @@ const projects = (await getCollection("work"))
 			<header class="hero">
 				<Hero
 					title="Hello, I'm Stephen Abbot"
-					tagline="Infrastructure platform engineer. I find what's broken at scale, build tools to make it visible, and design solutions that are cost-efficient and operationally transparent."
+					tagline="Infrastructure platform engineer. I find what's broken in large AWS estates, make it visible, and design systems that are cost‑efficient and operationally transparent."
 					align="start"
 				>
 					<div class="roles">
@@ -51,14 +58,16 @@ const projects = (await getCollection("work"))
 				/>
 			</header>
 
+			<p class="hero-context">20+ years building distributed, data-centric, and observability solutions</p>
+
 			<div class="credibility-bar">
 				<div class="cred-item">
-					<span class="cred-number">20+</span>
+					<span class="cred-number">5+</span>
 					<span class="cred-label">Years in Infrastructure</span>
 				</div>
 				<div class="cred-item">
 					<span class="cred-number">800+</span>
-					<span class="cred-label">AWS Accounts (Org Scale)</span>
+					<span class="cred-label">AWS Accounts in a Single Org</span>
 				</div>
 				<div class="cred-item">
 					<span class="cred-number">200+</span>
@@ -66,7 +75,7 @@ const projects = (await getCollection("work"))
 				</div>
 				<div class="cred-item">
 					<span class="cred-number">40+</span>
-					<span class="cred-label">Accounts Audited (TDT)</span>
+					<span class="cred-label">Accounts Analyzed in Depth</span>
 				</div>
 			</div>
 
@@ -78,29 +87,40 @@ const projects = (await getCollection("work"))
 			<section class="section with-background">
 				<header class="section-header stack gap-2 lg:gap-4">
 					<h3>Flagship Project</h3>
-					<p>Largest scope project: programmatic AWS account analysis.</p>
+					<p>Largest-scope project: programmatic AWS account analysis and governance.</p>
 				</header>
 				<div class="flagship-card">
 					<div class="flagship-label">Enterprise AWS — Technical Debt Tool</div>
 					<h4 class="flagship-title">Programmatic Account Analysis at Scale</h4>
-					<p class="flagship-subtitle">Enterprise account analysis and governance platform for multi-account AWS environments.</p>
+					<p class="flagship-subtitle">Programmatic account analysis for 40+ AWS accounts in a Fortune 23 healthcare organization.</p>
 					<div class="flagship-scope">
 						<span>800+ account org</span>
-						<span>40+ accounts analyzed</span>
-						<span>200+ teams informed</span>
+						<span>40+ accounts analyzed in depth</span>
+						<span>10+ teams informed</span>
 					</div>
-					<p class="flagship-body">
-						Most teams in a Fortune 23 healthcare company lacked the expertise to evaluate whether
-						their infrastructure was cost-efficient, secure, or compliant. No centralized visibility existed.
-					</p>
-					<p class="flagship-body">
-						I designed and built a Python/PostgreSQL platform that programmatically analyzes AWS
-						account configurations — identifying phantom resources, orphaned infrastructure, security
-						misconfigurations, IAM overprovisioning, and cost optimization opportunities.
-					</p>
-					<p class="flagship-body flagship-status">
-						Currently rebuilding with architectural improvements informed by v1 lessons.
-					</p>
+					<div class="flagship-section">
+						<strong class="flagship-section-label">Problem</strong>
+						<p class="flagship-body">
+							Most teams had no reliable way to tell if their AWS infrastructure was cost-efficient,
+							secure, or compliant. There was no central view across accounts, and no easy way to
+							spot waste, drift, or risky configurations.
+						</p>
+					</div>
+					<div class="flagship-section">
+						<strong class="flagship-section-label">What I built</strong>
+						<p class="flagship-body">
+							I designed and built a Python/PostgreSQL/BI platform that continuously analyzes AWS
+							account configurations — surfacing phantom resources, orphaned infrastructure, security
+							misconfigurations, IAM over-provisioning, and cost optimization opportunities.
+						</p>
+					</div>
+					<div class="flagship-section">
+						<strong class="flagship-section-label">Status</strong>
+						<p class="flagship-body flagship-status">
+							I am currently rebuilding the platform with an improved architecture informed by
+							lessons from the first version.
+						</p>
+					</div>
 					<a href="/work/tdt-technical-debt-tool/" class="flagship-link">
 						Read the full case study →
 					</a>
@@ -113,8 +133,8 @@ const projects = (await getCollection("work"))
 				<header class="section-header stack gap-2 lg:gap-4">
 					<h3>Supporting Projects</h3>
 					<p>
-						Selected projects from my catalog — foundation infrastructure, observability
-						services, and reusable tooling. Each solves a specific operational problem.
+						Selected projects from my platform catalog that solve specific problems
+						and support the flagship analysis tool.
 					</p>
 				</header>
 
@@ -243,6 +263,13 @@ const projects = (await getCollection("work"))
 			border-radius: 4.5rem;
 			object-fit: cover;
 		}
+	}
+
+	.hero-context {
+		text-align: center;
+		color: var(--gray-400);
+		font-size: var(--text-md);
+		font-style: italic;
 	}
 
 	/* Credibility bar */
@@ -416,6 +443,17 @@ const projects = (await getCollection("work"))
 		font-size: var(--text-sm);
 		font-weight: 500;
 		color: var(--accent-regular);
+	}
+
+	.flagship-section {
+		margin-bottom: 0.75rem;
+	}
+
+	.flagship-section-label {
+		display: block;
+		font-size: var(--text-sm);
+		color: var(--gray-200);
+		margin-bottom: 0.25rem;
 	}
 
 	.flagship-status {

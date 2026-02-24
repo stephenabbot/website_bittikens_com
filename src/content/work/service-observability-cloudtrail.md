@@ -4,8 +4,9 @@ publishDate: 2025-12-03 00:00:00
 img: /assets/stock-2.jpg
 img_alt: CloudTrail audit logging infrastructure with S3 storage and CloudWatch integration
 description: |
-  CloudFormation foundation for AWS audit logging infrastructure providing 
-  comprehensive API activity monitoring for governance, compliance, and security.
+  Opinionated logging patterns and pipelines that standardize how services emit
+  structured audit trails, making issues faster to detect and diagnose. Faster
+  incident response with consistent signals across accounts.
 tags:
   - CloudFormation
   - AWS

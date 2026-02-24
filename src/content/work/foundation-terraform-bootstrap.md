@@ -4,8 +4,9 @@ publishDate: 2025-12-07 00:00:00
 img: /assets/stock-1.jpg
 img_alt: CloudFormation foundation infrastructure with S3, DynamoDB, and OIDC components
 description: |
-  CloudFormation foundation for Terraform backend infrastructure and OIDC authentication.
-  Creates shared S3 state storage, DynamoDB locking, and GitHub Actions OIDC provider.
+  A minimal bootstrap tool that creates the S3 and DynamoDB backends needed for Terraform state,
+  with sensible defaults and guardrails. Teams can adopt Terraform with a secure, versioned backend
+  in hours instead of days.
 tags:
   - CloudFormation
   - AWS

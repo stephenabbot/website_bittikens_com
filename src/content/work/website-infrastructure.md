@@ -4,8 +4,9 @@ publishDate: 2025-12-05 00:00:00
 img: /assets/stock-3.jpg
 img_alt: Multi-domain static website hosting with S3, CloudFront, Route53, and ACM integration
 description: |
-  Multi-domain static website hosting infrastructure with automated SSL certificate 
-  management and global content distribution using AWS managed services.
+  A reusable AWS stack for static websites using S3, CloudFront, and Route53, tuned for
+  low cost and strong security by default. Production-ready hosting at roughly $3/month
+  with global distribution and no idle compute.
 tags:
   - OpenTofu
   - AWS

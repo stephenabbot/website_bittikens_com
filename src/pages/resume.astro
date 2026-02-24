@@ -23,7 +23,11 @@ const { Content } = await render(resume);
 				
 				<!-- Download Resume - Moved to top -->
 				<div class="download-section">
-					<a href="/stephen-abbot-resume.docx" download class="download-link">
+					<a href="/Stephen Abbot Resume January.pdf" download class="download-link">
+						<Icon icon="download" size="1.2em" />
+						Download Resume (PDF)
+					</a>
+					<a href="/stephen-abbot-resume.docx" download class="download-link download-link--secondary">
 						<Icon icon="download" size="1.2em" />
 						Download Resume (DOCX)
 					</a>
@@ -39,6 +43,12 @@ const { Content } = await render(resume);
 						</header>
 						<div class="content">
 							<div class="contact-grid">
+								<div class="contact-item">
+									<Icon icon="paper-plane-tilt" size="1.2em" />
+									<a href="mailto:stephen.abbot@denverbytes.com">
+										stephen.abbot@denverbytes.com
+									</a>
+								</div>
 								<div class="contact-item">
 									<Icon icon="map-pin" size="1.2em" />
 									<span>{resume.data.location}</span>
@@ -112,6 +122,10 @@ const { Content } = await render(resume);
 
 	.download-section {
 		margin-top: 1.5rem;
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.75rem;
+		justify-content: center;
 	}
 
 	.title {
@@ -217,6 +231,17 @@ const { Content } = await render(resume);
 
 	.download-link:hover {
 		background: #a855f7;
+	}
+
+	.download-link--secondary {
+		background: transparent;
+		border: 2px solid var(--gray-700);
+		color: var(--gray-300);
+	}
+
+	.download-link--secondary:hover {
+		background: var(--gray-800);
+		border-color: var(--gray-600);
 	}
 
 	@media (min-width: 50em) {
