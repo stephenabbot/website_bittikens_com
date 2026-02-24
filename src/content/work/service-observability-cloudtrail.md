@@ -11,6 +11,7 @@ tags:
   - AWS
   - Observability
   - Compliance
+repo: https://github.com/stephenabbot/service-observability-cloudtrail
 ---
 
 ## The Problem

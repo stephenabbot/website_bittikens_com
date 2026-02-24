@@ -12,6 +12,7 @@ tags:
   - SES
   - Python
   - DynamoDB
+repo: https://github.com/stephenabbot/service-email-handler
 ---
 
 ## The Problem

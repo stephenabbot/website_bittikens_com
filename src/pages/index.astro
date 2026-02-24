@@ -71,7 +71,6 @@ const projects = (await getCollection("work"))
 			</div>
 
 			<Skills />
-			<TechStack />
 		</div>
 
 		<!-- Flagship Project -->
@@ -79,7 +78,7 @@ const projects = (await getCollection("work"))
 			<section class="section with-background">
 				<header class="section-header stack gap-2 lg:gap-4">
 					<h3>Flagship Project</h3>
-					<p>The work that best represents what I do and why it matters.</p>
+					<p>Largest scope project: programmatic AWS account analysis.</p>
 				</header>
 				<div class="flagship-card">
 					<div class="flagship-label">Enterprise AWS — Technical Debt Tool</div>
@@ -107,8 +106,8 @@ const projects = (await getCollection("work"))
 				<header class="section-header stack gap-2 lg:gap-4">
 					<h3>Supporting Projects</h3>
 					<p>
-						Foundation infrastructure, observability services, and tools that demonstrate
-						the same patterns used at enterprise scale — built with code you can inspect.
+						Foundation infrastructure, observability services, and reusable tooling.
+						Source code linked from each project page.
 					</p>
 				</header>
 
@@ -132,6 +131,10 @@ const projects = (await getCollection("work"))
 				</div>
 			</section>
 		</main>
+
+		<div class="wrapper">
+			<TechStack />
+		</div>
 
 		<!-- Blog Showcase -->
 		<div class="wrapper">

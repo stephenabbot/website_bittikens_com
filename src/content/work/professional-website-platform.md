@@ -4,14 +4,15 @@ publishDate: 2025-12-04 00:00:00
 img: /assets/at-work.jpg
 img_alt: Professional website platform with Astro, TypeScript, and AWS infrastructure
 description: |
-  Enterprise-grade professional website platform demonstrating complete integration 
-  of foundation projects - from OIDC authentication to automated deployment workflows.
+  Astro-based website with GitHub Actions CI/CD, OIDC authentication, and automated
+  CloudFront deployment. Integrates foundation-terraform-bootstrap and foundation-iam-deploy-roles.
 tags:
   - Astro
   - TypeScript
   - AWS Integration
   - Foundation Integration
   - Portfolio
+repo: https://github.com/stephenabbot/website_bittikens_com
 ---
 
 ## The Problem
@@ -24,7 +25,7 @@ Astro-based static site with GitHub Actions CI/CD. Deployment uses OIDC authenti
 
 ## The Outcome
 
-Production hosting at approximately $3/month (S3 + CloudFront + Route53). Deploys automatically on push to main. A clean demonstration that the same practices used at enterprise scale apply to personal infrastructure.
+Production hosting at approximately $3/month (S3 + CloudFront + Route53). Deploys automatically on push to main.
 
 ## Stack
 

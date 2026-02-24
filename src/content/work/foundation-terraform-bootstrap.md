@@ -11,6 +11,7 @@ tags:
   - AWS
   - Infrastructure
   - OIDC
+repo: https://github.com/stephenabbot/foundation-terraform-bootstrap
 ---
 
 ## The Problem

@@ -11,6 +11,7 @@ tags:
   - Open Source
   - Logging
   - Community
+repo: https://github.com/stephenabbot/mypylogger
 ---
 
 ## The Problem

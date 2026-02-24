@@ -11,6 +11,7 @@ tags:
   - AWS
   - Splunk
   - Cost Optimization
+repo: https://github.com/stephenabbot/service-ephemeral-splunk
 ---
 
 ## The Problem
