@@ -1,131 +1,277 @@
-=== SEARCH: bittikens vs denverbytes (source files only) ===
-Run date: Mon Feb 23 13:10:51 MST 2026
+=== Nav inspection ===
+--- Built nav HTML (dist/index.html nav section) ---
+<nav data-astro-cid-dmqpwcec> <div class="menu-header" data-astro-cid-dmqpwcec> <a href="/" class="site-title" data-astro-cid-dmqpwcec> <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 256 256" aria-hidden="true" stroke="url(#icon-gradient-19bi2ov8a)" fill="url(#icon-gradient-19bi2ov8a)" style="--size:1.6em" class="astro-patnjmll" data-astro-cid-patnjmll> <g data-astro-cid-patnjmll><path fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="16" d="m80 96 40 32-40 32m56 0h40"/><rect width="192" height="160" x="32" y="48" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="16.97" rx="8.5"/></g> <linearGradient id="icon-gradient-19bi2ov8a" x1="23" x2="235" y1="43" y2="202" gradientUnits="userSpaceOnUse" data-astro-cid-patnjmll> <stop stop-color="var(--gradient-stop-1)" data-astro-cid-patnjmll></stop> <stop offset=".5" stop-color="var(--gradient-stop-2)" data-astro-cid-patnjmll></stop> <stop offset="1" stop-color="var(--gradient-stop-3)" data-astro-cid-patnjmll></stop> </linearGradient> </svg> 
+Stephen Abbot
+</a> <button id="astronav-menu" aria-label="Toggle Menu">  <div class="hamburger-icon" data-astro-cid-dmqpwcec> <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 256 256" aria-hidden="true" stroke="currentcolor" fill="currentcolor" class="astro-patnjmll" data-astro-cid-patnjmll> <g data-astro-cid-patnjmll><path stroke-linecap="round" stroke-linejoin="round" stroke-width="16" d="M40 128h176M40 64h176M40 192h176"/></g>  </svg>  </div>  </button> </div> <nav class="astronav-items astronav-toggle menu-content" id="menu-content" data-astro-cid-dmqpwcec="true">  <ul class="nav-items" data-astro-cid-dmqpwcec> <li data-astro-cid-dmqpwcec> <a aria-current="page" class="link" href="/" data-astro-cid-dmqpwcec>Home</a> </li> <!-- Projects dropdown --> <li class="dropdown-parent" data-astro-cid-dmqpwcec> <menu class="astronav-dropdown dropdown-wrapper" data-astro-cid-dmqpwcec="true" aria-expanded="false"> <button class="link dropdown-trigger" aria-haspopup="true" data-astro-cid-dmqpwcec>
+Projects <span class="dropdown-arrow" data-astro-cid-dmqpwcec>▾</span> </button> <div class="astronav-dropdown dropdown-toggle hidden dropdown-menu" data-astro-cid-dmqpwcec="true" aria-expanded="false">  <div class="dropdown-inner" data-astro-cid-dmqpwcec> <div class="dropdown-group" data-astro-cid-dmqpwcec> <div class="dropdown-group-label" data-astro-cid-dmqpwcec>Enterprise Tools</div> <a href="/work/tdt-technical-debt-tool/" class="dropdown-item" data-astro-cid-dmqpwcec> Technical Debt Tool </a><a href="/work/service-email-handler/" class="dropdown-item" data-astro-cid-dmqpwcec> Email Handler </a> </div><div class="dropdown-group" data-astro-cid-dmqpwcec> <div class="dropdown-group-label" data-astro-cid-dmqpwcec>Foundation</div> <a href="/work/foundation-terraform-bootstrap/" class="dropdown-item" data-astro-cid-dmqpwcec> Terraform Bootstrap </a><a href="/work/foundation-iam-deploy-roles/" class="dropdown-item" data-astro-cid-dmqpwcec> IAM Deploy Roles </a> </div><div class="dropdown-group" data-astro-cid-dmqpwcec> <div class="dropdown-group-label" data-astro-cid-dmqpwcec>Services</div> <a href="/work/service-observability-cloudtrail/" class="dropdown-item" data-astro-cid-dmqpwcec> CloudTrail Observability </a><a href="/work/service-ephemeral-splunk/" class="dropdown-item" data-astro-cid-dmqpwcec> Ephemeral Splunk </a><a href="/work/mypylogger/" class="dropdown-item" data-astro-cid-dmqpwcec> Python Logger (mypylogger) </a> </div><div class="dropdown-group" data-astro-cid-dmqpwcec> <div class="dropdown-group-label" data-astro-cid-dmqpwcec>Website</div> <a href="/work/professional-website-platform/" class="dropdown-item" data-astro-cid-dmqpwcec> Website Platform </a><a href="/work/website-infrastructure/" class="dropdown-item" data-astro-cid-dmqpwcec> Website Infrastructure </a> </div> <div class="dropdown-group dropdown-group--footer" data-astro-cid-dmqpwcec> <a 
 
---- Files containing 'bittikens' (source) ---
-/Users/stephenabbot/projects/website_bittikens_com/.claude/settings.local.json
-/Users/stephenabbot/projects/website_bittikens_com/docs/operations.md
-/Users/stephenabbot/projects/website_bittikens_com/docs/troubleshooting.md
-/Users/stephenabbot/projects/website_bittikens_com/astro.config.mjs
-/Users/stephenabbot/projects/website_bittikens_com/TODO/z_continue_refactor.md
-/Users/stephenabbot/projects/website_bittikens_com/README.md
-/Users/stephenabbot/projects/website_bittikens_com/config.env
-/Users/stephenabbot/projects/website_bittikens_com/package.json
-/Users/stephenabbot/projects/website_bittikens_com/scripts/cloudfront-basic-auth.js
-/Users/stephenabbot/projects/website_bittikens_com/.github/workflows/deploy.yml
-/Users/stephenabbot/projects/website_bittikens_com/.github/workflows/destroy.yml
-/Users/stephenabbot/projects/website_bittikens_com/src/content/resume/resume.md
-/Users/stephenabbot/projects/website_bittikens_com/src/content/work/professional-website-platform.md
-/Users/stephenabbot/projects/website_bittikens_com/src/content/work/website-infrastructure.md
-/Users/stephenabbot/projects/website_bittikens_com/src/components/MainHead.astro
-/Users/stephenabbot/projects/website_bittikens_com/src/config.ts
-/Users/stephenabbot/projects/website_bittikens_com/src/pages/architecture.astro
+--- astro-navbar Astronav.astro source ---
+-rw-r--r--@ 1 stephenabbot  staff  9358 Feb 23 13:59 node_modules/astro-navbar/examples/components/navbar.astro
+-rw-r--r--@ 1 stephenabbot  staff   308 Feb 23 13:59 node_modules/astro-navbar/examples/pages/contact.astro
+-rw-r--r--@ 1 stephenabbot  staff   268 Feb 23 13:59 node_modules/astro-navbar/examples/pages/index.astro
+-rw-r--r--@ 1 stephenabbot  staff   193 Feb 23 13:59 node_modules/astro-navbar/examples/pages/layout.astro
+-rw-r--r--@ 1 stephenabbot  staff  5171 Feb 23 13:59 node_modules/astro-navbar/src/Astronav.astro
+-rw-r--r--@ 1 stephenabbot  staff   205 Feb 23 13:59 node_modules/astro-navbar/src/components/CloseIcon.astro
+-rw-r--r--@ 1 stephenabbot  staff   200 Feb 23 13:59 node_modules/astro-navbar/src/components/Dropdown.astro
+-rw-r--r--@ 1 stephenabbot  staff   235 Feb 23 13:59 node_modules/astro-navbar/src/components/DropdownItems.astro
+-rw-r--r--@ 1 stephenabbot  staff   220 Feb 23 13:59 node_modules/astro-navbar/src/components/DropdownSubmenu.astro
+-rw-r--r--@ 1 stephenabbot  staff   980 Feb 23 13:59 node_modules/astro-navbar/src/components/MenuIcon.astro
+-rw-r--r--@ 1 stephenabbot  staff   195 Feb 23 13:59 node_modules/astro-navbar/src/components/MenuItems.astro
+-rw-r--r--@ 1 stephenabbot  staff   197 Feb 23 13:59 node_modules/astro-navbar/src/components/OpenIcon.astro
+-rw-r--r--@ 1 stephenabbot  staff  1713 Feb 23 13:59 node_modules/astro-navbar/src/components/StickyHeader.astro
+---
+interface Props {
+  closeOnClick?: boolean;
+}
+const { closeOnClick = false } = Astro.props;
+---
 
---- Files containing 'denverbytes' (source) ---
-/Users/stephenabbot/projects/website_bittikens_com/TODO/z_continue_refactor.md
-/Users/stephenabbot/projects/website_bittikens_com/TODO/strategic-plan-v2.md
-/Users/stephenabbot/projects/website_bittikens_com/TODO/blog-topic-backlog.md
-/Users/stephenabbot/projects/website_bittikens_com/TODO/z_website_cleanup_02.md
-/Users/stephenabbot/projects/website_bittikens_com/src/content/work/website-infrastructure.md
+<slot />
 
---- Detailed bittikens matches (file:line:content) ---
-/Users/stephenabbot/projects/website_bittikens_com/.claude/settings.local.json:6:      "Bash(/Users/stephenabbot/projects/website_bittikens_com/z_runcommands.sh:*)"
-/Users/stephenabbot/projects/website_bittikens_com/docs/operations.md:11:git clone https://github.com/stephenabbot/website_bittikens_com.git
-/Users/stephenabbot/projects/website_bittikens_com/docs/operations.md:12:cd website_bittikens_com
-/Users/stephenabbot/projects/website_bittikens_com/docs/operations.md:111:curl -I https://bittikens.com
-/Users/stephenabbot/projects/website_bittikens_com/docs/operations.md:114:curl -I https://bittikens.com/work/
-/Users/stephenabbot/projects/website_bittikens_com/docs/operations.md:115:curl -I https://bittikens.com/about/
-/Users/stephenabbot/projects/website_bittikens_com/docs/operations.md:122:aws s3 ls s3://bittikens-com-static-prd/
-/Users/stephenabbot/projects/website_bittikens_com/docs/operations.md:155:aws s3api list-object-versions --bucket bittikens-com-static-prd
-/Users/stephenabbot/projects/website_bittikens_com/docs/operations.md:159:  --copy-source "bittikens-com-static-prd/index.html?versionId=VERSION_ID" \
-/Users/stephenabbot/projects/website_bittikens_com/docs/operations.md:160:  --bucket bittikens-com-static-prd \
-/Users/stephenabbot/projects/website_bittikens_com/docs/operations.md:178:echo | openssl s_client -servername bittikens.com -connect bittikens.com:443 2>/dev/null | openssl x509 -noout -dates
-/Users/stephenabbot/projects/website_bittikens_com/docs/operations.md:185:curl -I https://bittikens.com
-/Users/stephenabbot/projects/website_bittikens_com/docs/troubleshooting.md:74:2. Check role exists: `aws iam get-role --role-name gharole-website_bittikens_com-prd`
-/Users/stephenabbot/projects/website_bittikens_com/docs/troubleshooting.md:101:aws ssm get-parameter --name "/deployment-roles/website_bittikens_com/role-arn" --region us-east-1
-/Users/stephenabbot/projects/website_bittikens_com/docs/troubleshooting.md:107:aws ssm get-parameter --name "/static-website/infrastructure/bittikens.com/bucket-name" --region us-east-1
-/Users/stephenabbot/projects/website_bittikens_com/docs/troubleshooting.md:108:aws ssm get-parameter --name "/static-website/infrastructure/bittikens.com/cloudfront-distribution-id" --region us-east-1
-/Users/stephenabbot/projects/website_bittikens_com/astro.config.mjs:7:  site: 'https://bittikens.com',
-/Users/stephenabbot/projects/website_bittikens_com/TODO/z_continue_refactor.md:1:# Continue: Migrate website from denverbytes.com to bittikens.com
-/Users/stephenabbot/projects/website_bittikens_com/TODO/z_continue_refactor.md:5:This project was copied from the denverbytes.com website repo to a new GitHub repo (`stephenabbot/website_bittikens_com`). The goal is to host it on bittikens.com as a staging/development site. AWS infrastructure (S3, CloudFront, Route53, SSM params, OIDC role) already exists for bittikens.com.
-/Users/stephenabbot/projects/website_bittikens_com/TODO/z_continue_refactor.md:17:- `config.env`: `DOMAIN_NAME=bittikens.com`, `GOOGLE_SEARCH_CONSOLE_TXT=` (empty)
-/Users/stephenabbot/projects/website_bittikens_com/TODO/z_continue_refactor.md:18:- `astro.config.mjs`: `site: 'https://bittikens.com'`
-/Users/stephenabbot/projects/website_bittikens_com/TODO/z_continue_refactor.md:19:- `package.json`: `"name": "website_bittikens_com"`
-/Users/stephenabbot/projects/website_bittikens_com/TODO/z_continue_refactor.md:24:- `.github/workflows/deploy.yml`: role changed to `gharole-website_bittikens_com-prd`
-/Users/stephenabbot/projects/website_bittikens_com/TODO/z_continue_refactor.md:29:- `src/components/MainHead.astro`: Person schema URL now uses `Astro.site?.href ?? "https://bittikens.com"`
-/Users/stephenabbot/projects/website_bittikens_com/TODO/z_continue_refactor.md:39:- `src/pages/architecture.astro`: GitHub link → `website_bittikens_com`
-/Users/stephenabbot/projects/website_bittikens_com/TODO/z_continue_refactor.md:40:- `src/content/resume/resume.md`: website → `https://bittikens.com`
-/Users/stephenabbot/projects/website_bittikens_com/TODO/z_continue_refactor.md:41:- `src/content/work/website-infrastructure.md`: Reordered domains (bittikens.com as "This website", denverbytes.com as "Production website")
-/Users/stephenabbot/projects/website_bittikens_com/TODO/z_continue_refactor.md:42:- `src/content/work/professional-website-platform.md`: Repo link and live site → bittikens.com
-/Users/stephenabbot/projects/website_bittikens_com/TODO/z_continue_refactor.md:43:- `README.md`: Repo reference → `website_bittikens_com`
-/Users/stephenabbot/projects/website_bittikens_com/TODO/z_continue_refactor.md:44:- `docs/operations.md`: All denverbytes references → bittikens (~11 replacements)
-/Users/stephenabbot/projects/website_bittikens_com/TODO/z_continue_refactor.md:45:- `docs/troubleshooting.md`: All denverbytes references → bittikens (~4 replacements)
-/Users/stephenabbot/projects/website_bittikens_com/TODO/z_continue_refactor.md:62:Deploy failed because the `AWS_ACCOUNT_ID` GitHub variable is not set on the `stephenabbot/website_bittikens_com` repo.
-/Users/stephenabbot/projects/website_bittikens_com/TODO/z_continue_refactor.md:69:   gh variable set AWS_ACCOUNT_ID --body "694394480102" --repo stephenabbot/website_bittikens_com
-/Users/stephenabbot/projects/website_bittikens_com/TODO/z_continue_refactor.md:94:   curl -I https://bittikens.com
-/Users/stephenabbot/projects/website_bittikens_com/TODO/z_continue_refactor.md:97:   curl -I -u stabbot:changeme https://bittikens.com
-/Users/stephenabbot/projects/website_bittikens_com/TODO/z_continue_refactor.md:99:   # Verify robots.txt shows bittikens.com
-/Users/stephenabbot/projects/website_bittikens_com/TODO/z_continue_refactor.md:100:   curl -u stabbot:changeme https://bittikens.com/robots.txt
-/Users/stephenabbot/projects/website_bittikens_com/TODO/z_continue_refactor.md:107:- The `GOOGLE_SEARCH_CONSOLE_TXT` is intentionally empty — bittikens.com is a dev/staging site and doesn't need Search Console verification. The deploy script's DNS verify step will warn but won't fail.
-/Users/stephenabbot/projects/website_bittikens_com/README.md:7:Repository: [website_bittikens_com](https://github.com/stephenabbot/website_bittikens_com)
-/Users/stephenabbot/projects/website_bittikens_com/config.env:5:DOMAIN_NAME=bittikens.com
-/Users/stephenabbot/projects/website_bittikens_com/package.json:2:  "name": "website_bittikens_com",
-/Users/stephenabbot/projects/website_bittikens_com/scripts/cloudfront-basic-auth.js:17:        'www-authenticate': { value: 'Basic realm="bittikens.com"' },
-/Users/stephenabbot/projects/website_bittikens_com/.github/workflows/deploy.yml:27:          role-to-assume: arn:aws:iam::${{ vars.AWS_ACCOUNT_ID }}:role/gharole-website_bittikens_com-prd
-/Users/stephenabbot/projects/website_bittikens_com/.github/workflows/destroy.yml:37:          role-to-assume: arn:aws:iam::${{ vars.AWS_ACCOUNT_ID }}:role/gharole-website_bittikens_com-prd
-/Users/stephenabbot/projects/website_bittikens_com/src/content/resume/resume.md:5:website: "https://bittikens.com"
-/Users/stephenabbot/projects/website_bittikens_com/src/content/work/professional-website-platform.md:125:**Repository**: [website_bittikens_com](https://github.com/stephenabbot/website_bittikens_com)
-/Users/stephenabbot/projects/website_bittikens_com/src/content/work/professional-website-platform.md:126:**Live Site**: [bittikens.com](https://bittikens.com)
-/Users/stephenabbot/projects/website_bittikens_com/src/content/work/website-infrastructure.md:43:- **bittikens.com** - This website
-/Users/stephenabbot/projects/website_bittikens_com/src/components/MainHead.astro:30:	"url": Astro.site?.href ?? "https://bittikens.com",
-/Users/stephenabbot/projects/website_bittikens_com/src/config.ts:2:  domain: 'bittikens.com',
-/Users/stephenabbot/projects/website_bittikens_com/src/config.ts:3:  siteUrl: 'https://bittikens.com',
-/Users/stephenabbot/projects/website_bittikens_com/src/config.ts:4:  repoName: 'website_bittikens_com',
-/Users/stephenabbot/projects/website_bittikens_com/src/config.ts:5:  repoUrl: 'https://github.com/stephenabbot/website_bittikens_com',
-/Users/stephenabbot/projects/website_bittikens_com/src/pages/architecture.astro:201:									href="https://github.com/stephenabbot/website_bittikens_com"
+<script define:vars={{ closeOnClick }}>
+["DOMContentLoaded", "astro:after-swap"].forEach((event) => {
+  document.addEventListener(event, addListeners);
+});
 
---- Detailed denverbytes matches (file:line:content) ---
-/Users/stephenabbot/projects/website_bittikens_com/TODO/z_continue_refactor.md:1:# Continue: Migrate website from denverbytes.com to bittikens.com
-/Users/stephenabbot/projects/website_bittikens_com/TODO/z_continue_refactor.md:5:This project was copied from the denverbytes.com website repo to a new GitHub repo (`stephenabbot/website_bittikens_com`). The goal is to host it on bittikens.com as a staging/development site. AWS infrastructure (S3, CloudFront, Route53, SSM params, OIDC role) already exists for bittikens.com.
-/Users/stephenabbot/projects/website_bittikens_com/TODO/z_continue_refactor.md:41:- `src/content/work/website-infrastructure.md`: Reordered domains (bittikens.com as "This website", denverbytes.com as "Production website")
-/Users/stephenabbot/projects/website_bittikens_com/TODO/z_continue_refactor.md:44:- `docs/operations.md`: All denverbytes references → bittikens (~11 replacements)
-/Users/stephenabbot/projects/website_bittikens_com/TODO/z_continue_refactor.md:45:- `docs/troubleshooting.md`: All denverbytes references → bittikens (~4 replacements)
-/Users/stephenabbot/projects/website_bittikens_com/TODO/z_continue_refactor.md:54:- Remaining "denverbytes" references are expected:
-/Users/stephenabbot/projects/website_bittikens_com/TODO/z_continue_refactor.md:55:  - `website-infrastructure.md` — intentionally lists denverbytes.com as "Production website"
-/Users/stephenabbot/projects/website_bittikens_com/TODO/z_continue_refactor.md:72:   This is the same account ID used by the denverbytes repo (confirmed via `gh variable list --repo stephenabbot/website_denverbytes_com`).
-/Users/stephenabbot/projects/website_bittikens_com/TODO/strategic-plan-v2.md:14:Stephen Abbot is a 20+ year infrastructure engineer with deep AWS expertise, enterprise-scale experience (800+ account org, Fortune 23 healthcare, 200+ engineering teams), and a demonstrated ability to identify and solve systemic technical debt. His professional presence — website (denverbytes.com), resume, and LinkedIn — does not communicate this effectively.
-/Users/stephenabbot/projects/website_bittikens_com/TODO/strategic-plan-v2.md:165:- Professional email at stabbot@denverbytes.com (email hosting project in progress — prioritized for completion)
-/Users/stephenabbot/projects/website_bittikens_com/TODO/strategic-plan-v2.md:224:Every claim on the resume should have a corresponding deep-dive available on the website. The resume is the summary; the website is the evidence. Add a line to the resume header: "Portfolio & Architecture Details: denverbytes.com"
-/Users/stephenabbot/projects/website_bittikens_com/TODO/strategic-plan-v2.md:238:Mirror the 60-second TDT narrative (§2.2) plus the AI positioning statement (§3.2). End with: "Portfolio and architecture details at denverbytes.com."
-/Users/stephenabbot/projects/website_bittikens_com/TODO/strategic-plan-v2.md:247:1. Architecture page (denverbytes.com/architecture)
-/Users/stephenabbot/projects/website_bittikens_com/TODO/strategic-plan-v2.md:299:| Cross-post to LinkedIn with hook | Stephen | Summary + "Read more at denverbytes.com/blog/[slug]" |
-/Users/stephenabbot/projects/website_bittikens_com/TODO/strategic-plan-v2.md:320:Both assessments flag the hotmail address. Stephen has a separate project in progress to enable email hosting on denverbytes.com. This should be prioritized for completion before Phase 1 CTA changes go live. The CTA can use placeholder text ("Professional inquiries: [coming soon]") if the email project is not complete by Phase 1 execution.
-/Users/stephenabbot/projects/website_bittikens_com/TODO/strategic-plan-v2.md:360:- Publish full post on denverbytes.com
-/Users/stephenabbot/projects/website_bittikens_com/TODO/strategic-plan-v2.md:421:- ~~**Professional email**~~: denverbytes.com email hosting project in progress, will be prioritized.
-/Users/stephenabbot/projects/website_bittikens_com/TODO/blog-topic-backlog.md:55:**Novel angle:** Not a tutorial -- a design philosophy piece. Every architectural decision for denverbytes.com was made with cost as a first-class constraint. S3 + CloudFront + Route53 = $3/month for a site that handles production traffic. The decisions that make this possible and the trade-offs accepted. Contrast with teams spending $500+/month on equivalent hosting because they didn't think about cost at design time.  
-/Users/stephenabbot/projects/website_bittikens_com/TODO/z_website_cleanup_02.md:3:Analysis performed 2026-02-09 by Claude Opus 4.6 against the denverbytes.com codebase.
-/Users/stephenabbot/projects/website_bittikens_com/src/content/work/website-infrastructure.md:44:- **denverbytes.com** - Production website
-/Users/stephenabbot/projects/website_bittikens_com/src/content/work/website-infrastructure.md:45:- **denverbites.com** - redirect to denverbytes.com
+// Function to clone and replace elements
+function cloneAndReplace(element) {
+  const clone = element.cloneNode(true);
+  element.parentNode.replaceChild(clone, element);
+}
 
---- stabbot matches (file:line:content) ---
-/Users/stephenabbot/projects/website_bittikens_com/TODO/z_continue_refactor.md:49:- Created `scripts/cloudfront-basic-auth.js` (CloudFront Function source, credentials: stabbot/changeme)
-/Users/stephenabbot/projects/website_bittikens_com/TODO/z_continue_refactor.md:97:   curl -I -u stabbot:changeme https://bittikens.com
-/Users/stephenabbot/projects/website_bittikens_com/TODO/z_continue_refactor.md:100:   curl -u stabbot:changeme https://bittikens.com/robots.txt
-/Users/stephenabbot/projects/website_bittikens_com/TODO/z_continue_refactor.md:108:- GitHub CLI is authenticated as `stabbotco1` (has repo + workflow scopes).
-/Users/stephenabbot/projects/website_bittikens_com/TODO/z_website_cleanup.md:109:📧 Professional Inquiries: stabbot@hotmail.com
-/Users/stephenabbot/projects/website_bittikens_com/TODO/z_website_cleanup.md:452:- Email: stabbot@hotmail.com (email icon)
-/Users/stephenabbot/projects/website_bittikens_com/TODO/strategic-plan-v2.md:165:- Professional email at stabbot@denverbytes.com (email hosting project in progress — prioritized for completion)
-/Users/stephenabbot/projects/website_bittikens_com/TODO/z_website_cleanup_02.md:46:**Current CTA:** "Interested in mentorship or community technology support?" -> `mailto:stabbot@hotmail.com`
-/Users/stephenabbot/projects/website_bittikens_com/scripts/cloudfront-basic-auth.js:2:// Credentials: stabbot:changeme
-/Users/stephenabbot/projects/website_bittikens_com/scripts/manage-cloudfront-auth.sh:239:    echo "Credentials: stabbot / changeme"
-/Users/stephenabbot/projects/website_bittikens_com/src/components/ContactCTA.astro:8:	<CallToAction href="mailto:stabbot@hotmail.com">
+function addListeners() {
+  // Clean up existing listeners
+  const oldMenuButton = document.getElementById("astronav-menu");
+  if (oldMenuButton) {
+    cloneAndReplace(oldMenuButton);
+  }
 
---- All email addresses found ---
-/Users/stephenabbot/projects/website_bittikens_com/TODO/z_website_cleanup.md:109:📧 Professional Inquiries: stabbot@hotmail.com
-/Users/stephenabbot/projects/website_bittikens_com/TODO/z_website_cleanup.md:452:- Email: stabbot@hotmail.com (email icon)
-/Users/stephenabbot/projects/website_bittikens_com/TODO/strategic-plan-v2.md:165:- Professional email at stabbot@denverbytes.com (email hosting project in progress — prioritized for completion)
-/Users/stephenabbot/projects/website_bittikens_com/TODO/z_website_cleanup_02.md:46:**Current CTA:** "Interested in mentorship or community technology support?" -> `mailto:stabbot@hotmail.com`
-Binary file /Users/stephenabbot/projects/website_bittikens_com/public/assets/at-work.jpg matches
-/Users/stephenabbot/projects/website_bittikens_com/src/components/ContactCTA.astro:8:	<CallToAction href="mailto:stabbot@hotmail.com">
-/Users/stephenabbot/projects/website_bittikens_com/src/components/MainHead.astro:31:	"email": "abbotnh@yahoo.com",
+  const oldDropdownMenus = document.querySelectorAll(".astronav-dropdown");
+  oldDropdownMenus.forEach((menu) => {
+    cloneAndReplace(menu);
+  });
 
+  // Mobile nav toggle
+  const menuButton = document.getElementById("astronav-menu");
+  menuButton && menuButton.addEventListener("click", toggleMobileNav);
+
+  // Dropdown menus
+  const dropdownMenus = document.querySelectorAll(".astronav-dropdown");
+  dropdownMenus.forEach((menu) => {
+    const button = menu.querySelector("button");
+    button &&
+      button.addEventListener("click", (event) =>
+        toggleDropdownMenu(event, menu, dropdownMenus)
+      );
+
+    // Handle Submenu Dropdowns
+    const dropDownSubmenus = menu.querySelectorAll(
+      ".astronav-dropdown-submenu"
+    );
+
+    dropDownSubmenus.forEach((submenu) => {
+      const submenuButton = submenu.querySelector("button");
+      submenuButton &&
+        submenuButton.addEventListener("click", (event) => {
+          event.stopImmediatePropagation();
+          toggleSubmenuDropdown(event, submenu);
+        });
+    });
+  });
+
+  // Clicking away from dropdown will remove the dropdown class
+  document.addEventListener("click", closeAllDropdowns);
+
+  if (closeOnClick) {
+    handleCloseOnClick();
+  }
+}
+
+function toggleMobileNav() {
+  [...document.querySelectorAll(".astronav-toggle")].forEach((el) => {
+    el.classList.toggle("hidden");
+  });
+}
+
+function toggleDropdownMenu(event, menu, dropdownMenus) {
+  toggleMenu(menu);
+
+  // Close one dropdown when selecting another
+  Array.from(dropdownMenus)
+    .filter((el) => el !== menu && !menu.contains(el))
+    .forEach(closeMenu);
+
+  event.stopPropagation();
+}
+
+function toggleSubmenuDropdown(event, submenu) {
+  event.stopPropagation();
+  toggleMenu(submenu);
+
+  // Close sibling submenus at the same nesting level
+  const siblingSubmenus = submenu
+    .closest(".astronav-dropdown")
+    .querySelectorAll(".astronav-dropdown-submenu");
+  Array.from(siblingSubmenus)
+    .filter((el) => el !== submenu && !submenu.contains(el))
+    .forEach(closeMenu);
+}
+
+function closeAllDropdowns(event) {
+  const dropdownMenus = document.querySelectorAll(".dropdown-toggle");
+  const dropdownParent = document.querySelectorAll(
+    ".astronav-dropdown, .astronav-dropdown-submenu"
+  );
+  const isButtonInsideDropdown = [
+    ...document.querySelectorAll(
+      `.astronav-dropdown button, .astronav-dropdown label, .astronav-dropdown input,
+	  .astronav-dropdown-submenu button, .astronav-dropdown-submenu label, .astronav-dropdown-submenu input,
+	  #astronav-menu`
+    ),
+  ].some((button) => button.contains(event.target));
+  if (!isButtonInsideDropdown) {
+    dropdownMenus.forEach((d) => {
+      // console.log("I ran", d);
+      // if (!d.contains(event.target)) {
+      d.classList.remove("open");
+      d.removeAttribute("open");
+      d.classList.add("hidden");
+      // }
+    });
+    dropdownParent.forEach((d) => {
+      d.classList.remove("open");
+      d.removeAttribute("open");
+      d.setAttribute("aria-expanded", "false");
+    });
+  }
+}
+
+function toggleMenu(menu) {
+  menu.classList.toggle("open");
+  const expanded = menu.getAttribute("aria-expanded") === "true";
+  menu.setAttribute("aria-expanded", expanded ? "false" : "true");
+  menu.hasAttribute("open")
+    ? menu.removeAttribute("open")
+    : menu.setAttribute("open", "");
+
+  const dropdownToggle = menu.querySelector(".dropdown-toggle");
+  const dropdownExpanded = dropdownToggle.getAttribute("aria-expanded");
+  dropdownToggle.classList.toggle("hidden");
+  dropdownToggle.setAttribute(
+    "aria-expanded",
+    dropdownExpanded === "true" ? "false" : "true"
+  );
+}
+
+function closeMenu(menu) {
+  // console.log("closing", menu);
+  menu.classList.remove("open");
+  menu.removeAttribute("open");
+  menu.setAttribute("aria-expanded", "false");
+  const dropdownToggles = menu.querySelectorAll(".dropdown-toggle");
+  dropdownToggles.forEach((toggle) => {
+    toggle.classList.add("hidden");
+    toggle.setAttribute("aria-expanded", "false");
+  });
+}
+
+function handleCloseOnClick() {
+  const navMenuItems = document.querySelector(".astronav-items");
+  const navToggle = document.getElementById("astronav-menu");
+  const navLink = navMenuItems && navMenuItems.querySelectorAll("a");
+
+  const MenuIcons = navToggle.querySelectorAll(".astronav-toggle");
+
+  navLink &&
+    navLink.forEach((item) => {
+      item.addEventListener("click", () => {
+        navMenuItems?.classList.add("hidden");
+        MenuIcons.forEach((el) => {
+          el.classList.toggle("hidden");
+        });
+      });
+    });
+}
+</script>
+
+--- astro-navbar MenuItems source ---
+---
+interface Props {
+    class?: string;
+}
+const { class: className, ...rest } = Astro.props;
+---
+
+<nav class:list={["astronav-items astronav-toggle", className]} {...rest}>
+    <slot />
+</nav>
+
+--- astro-navbar MenuIcon source ---
+---
+interface Props {
+  class?: string;
+}
+const { class: className, ...rest } = Astro.props;
+---
+
+<button id="astronav-menu" aria-label="Toggle Menu">
+  <slot>
+    <svg
+      fill="currentColor"
+      class:list={[className]}
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      xmlns="http://www.w3.org/2000/svg"
+      {...rest}>
+      <title>Toggle Menu</title>
+      <path
+        class="astronav-close-icon astronav-toggle hidden"
+        fill-rule="evenodd"
+        clip-rule="evenodd"
+        d="M18.278 16.864a1 1 0 01-1.414 1.414l-4.829-4.828-4.828 4.828a1 1 0 01-1.414-1.414l4.828-4.829-4.828-4.828a1 1 0 011.414-1.414l4.829 4.828 4.828-4.828a1 1 0 111.414 1.414l-4.828 4.829 4.828 4.828z"
+      ></path>
+      <path
+        class="astronav-open-icon astronav-toggle"
+        fill-rule="evenodd"
+        d="M4 5h16a1 1 0 010 2H4a1 1 0 110-2zm0 6h16a1 1 0 010 2H4a1 1 0 010-2zm0 6h16a1 1 0 010 2H4a1 1 0 010-2z"
+      ></path>
+    </svg>
+  </slot>
+</button>
+
+--- astro-navbar Dropdown source ---
+---
+interface Props {
+    class?: string;
+}
+const { class: className, ...rest } = Astro.props;
+---
+
+
+<menu class:list={["astronav-dropdown", className]} {...rest} aria-expanded="false"><slot/></menu>
+
+--- astro-navbar DropdownItems source ---
+---
+interface Props {
+    class?: string;
+}
+const { class: className, ...rest } = Astro.props;
+---
+
+<div
+    class:list={["astronav-dropdown dropdown-toggle hidden", className]} {...rest}
+    aria-expanded="false">
+    <slot />
+</div>
+
+--- astro-navbar JS (if any) ---
+
+--- Full built nav HTML (wider capture) ---
+<nav data-astro-cid-dmqpwcec> <div class="menu-header" data-astro-cid-dmqpwcec> <a href="/" class="site-title" data-astro-cid-dmqpwcec> <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 256 256" aria-hidden="true" stroke="url(#icon-gradient-19bi2ov8a)" fill="url(#icon-gradient-19bi2ov8a)" style="--size:1.6em" class="astro-patnjmll" data-astro-cid-patnjmll> <g data-astro-cid-patnjmll><path fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="16" d="m80 96 40 32-40 32m56 0h40"/><rect width="192" height="160" x="32" y="48" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="16.97" rx="8.5"/></g> <linearGradient id="icon-gradient-19bi2ov8a" x1="23" x2="235" y1="43" y2="202" gradientUnits="userSpaceOnUse" data-astro-cid-patnjmll> <stop stop-color="var(--gradient-stop-1)" data-astro-cid-patnjmll></stop> <stop offset=".5" stop-color="var(--gradient-stop-2)" data-astro-cid-patnjmll></stop> <stop offset="1" stop-color="var(--gradient-stop-3)" data-astro-cid-patnjmll></stop> </linearGradient> </svg> 
+Stephen Abbot
+</a> <button id="astronav-menu" aria-label="Toggle Menu">  <div class="hamburger-icon" data-astro-cid-dmqpwcec> <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 256 256" aria-hidden="true" stroke="currentcolor" fill="currentcolor" class="astro-patnjmll" data-astro-cid-patnjmll> <g data-astro-cid-patnjmll><path stroke-linecap="round" stroke-linejoin="round" stroke-width="16" d="M40 128h176M40 64h176M40 192h176"/></g>  </svg>  </div>  </button> </div> <nav class="astronav-items astronav-toggle menu-content" id="menu-content" data-astro-cid-dmqpwcec="true">  <ul class="nav-items" data-astro-cid-dmqpwcec> <li data-astro-cid-dmqpwcec> <a aria-current="page" class="link" href="/" data-astro-cid-dmqpwcec>Home</a> </li> <!-- Projects dropdown --> <li class="dropdown-parent" data-astro-cid-dmqpwcec> <menu class="astronav-dropdown dropdown-wrapper" data-astro-cid-dmqpwcec="true" aria-expanded="false"> <button class="link dropdown-trigger" aria-haspopup="true" data-astro-cid-dmqpwcec>
+Projects <span class="dropdown-arrow" data-astro-cid-dmqpwcec>▾</span> </button> <div class="astronav-dropdown dropdown-toggle hidden dropdown-menu" data-astro-cid-dmqpwcec="true" aria-expanded="false">  <div class="dropdown-inner" data-astro-cid-dmqpwcec> <div class="dropdown-group" data-astro-cid-dmqpwcec> <div class="dropdown-group-label" data-astro-cid-dmqpwcec>Enterprise Tools</div> <a href="/work/tdt-technical-debt-tool/" class="dropdown-item" data-astro-cid-dmqpwcec> Technical Debt Tool </a><a href="/work/service-email-handler/" class="dropdown-item" data-astro-cid-dmqpwcec> Email Handler </a> </div><div class="dropdown-group" data-astro-cid-dmqpwcec> <div class="dropdown-group-label" data-astro-cid-dmqpwcec>Foundation</div> <a href="/work/foundation-terraform-bootstrap/" class="dropdown-item" data-astro-cid-dmqpwcec> Terraform Bootstrap </a><a href="/work/foundation-iam-deploy-roles/" class="dropdown-item" data-astro-cid-dmqpwcec> IAM Deploy Roles </a> </div><div class="dropdown-group" data-astro-cid-dmqpwcec> <div class="dropdown-group-label" data-astro-cid-dmqpwcec>Services</div> <a href="/work/service-observability-cloudtrail/" class="dropdown-item" data-astro-cid-dmqpwcec> CloudTrail Observability </a><a href="/work/service-ephemeral-splunk/" class="dropdown-item" data-astro-cid-dmqpwcec> Ephemeral Splunk </a><a href="/work/mypylogger/" class="dropdown-item" data-astro-cid-dmqpwcec> Python Logger (mypylogger) </a> </div><div class="dropdown-group" data-astro-cid-dmqpwcec> <div class="dropdown-group-label" data-astro-cid-dmqpwcec>Website</div> <a href="/work/professional-website-platform/" class="dropdown-item" data-astro-cid-dmqpwcec> Website Platform </a><a href="/work/website-infrastructure/" class="dropdown-item" data-astro-cid-dmqpwcec> Website Infrastructure </a> </div> <div class="dropdown-group dropdown-group--footer" data-astro-cid-dmqpwcec> <a href="/work/" class="dropdown-item dropdown-item--all" data-astro-cid-dmqpwcec>
+View All Projects →
+</a> </div> </div>  </div> </menu> </li> <li data-astro-cid-dmqpwcec> <a class="link" href="/architecture/" data-astro-cid-dmqpwcec>Architecture</a> </li> <li data-astro-cid-dmqpwcec> <a class="link" href="/experience/" data-astro-cid-dmqpwcec>Experience</a> </li> <li data-astro-cid-dmqpwcec> <a class="link" href="/blog/" data-astro-cid-dmqpwcec>Blog</a> </li> <li data-astro-cid-dmqpwcec> <a class="link" href="/resume/" data-astro-cid-dmqpwcec>Resume</a> </li> </ul> <div class="menu-footer" data-astro-cid-dmqpwcec> <div class="socials" data-astro-cid-dmqpwcec> <a href="https://github.com/stephenabbot?tab=repositories" class="social" data-astro-cid-dmqpwcec> <span class="sr-only" data-astro-cid-dmqpwcec>GitHub</span> <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 256 256" aria-hidden="true" stroke="currentcolor" fill="currentcolor" class="astro-patnjmll" data-astro-cid-patnjmll> <g data-astro-cid-patnjmll><g stroke-linecap="round" stroke-linejoin="round"><path fill="none" stroke-width="14.7" d="M55.7 167.2c13.9 1 21.3 13.1 22.2 14.6 4.2 7.2 10.4 9.6 18.3 7.1l1.1-3.4a60.3 60.3 0 0 1-25.8-11.9c-12-10.1-18-25.6-18-46.3"/><path fill="none" stroke-width="16" d="M61.4 205.1a24.5 24.5 0 0 1-3-6.1c-3.2-7.9-7.1-10.6-7.8-11.1l-1-.6c-2.4-1.6-9.5-6.5-7.2-13.9 1.4-4.5 6-7.2 12.3-7.2h.8c4 .3 7.6 1.5 10.7 3.2-9.1-10.1-13.6-24.3-13.6-42.3 0-11.3 3.5-21.7 10.1-30.4A46.7 46.7 0 0 1 65 67.3a8.3 8.3 0 0 1 5-4.7c2.8-.9 13.3-2.7 33.2 9.9a105 105 0 0 1 50.5 0c19.9-12.6 30.4-10.8 33.2-9.9 2.3.7 4.1 2.4 5 4.7 5 12.7 4 23.2 2.6 29.4 6.7 8.7 10 18.9 10 30.4 0 42.6-25.8 54.7-43.6 58.7 1.4 4.1 2.2 8.8 2.2 13.7l-.1 23.4v2.3"/><path fill="none" stroke-width="16" d="M160.9 185.7c1.4 4.1 2.2 8.8 2.2 13.7l-.1 23.4v2.3A98.6 98.6 0 1 0 61.4 205c-1.4-2.1-11.3-17.5-11.8-17.8-2.4-1.6-9.5-6.5-7.2-13.9 1.4-4.5 6-7.2 12.3-7.2h.8c4 .3 7.6 1.5 10.7 3.2-9.1-10.1-13.6-24.3-13.6-42.3 0-11.3 3.5-21.7 10.1-30.4A46.4 46.4 0 0 1 65 67.3a8.3 8.3 0 0 1 5-4.7c2.8-.9 13.3-2.7 33.2 9.9a105 105 0 0 1 50.5 0c19.9-12.6 30.4-10.8 33.2-9.9 2.3.7 4.1 2.4 5 4.7 5 12.7 4 23.2 2.6 29.4 6.7 8.7 10 18.9 10 30.4.1 42.6-25.8 54.7-43.6 58.6z"/><path fill="none" stroke-width="18.7" d="m170.1 203.3 17.3-12 17.2-18.7 9.5-26.6v-27.9l-9.5-27.5" /><path fill="none" stroke-width="22.7" d="m92.1 57.3 23.3-4.6 18.7-1.4 29.3 5.4m-110 32.6-8 16-4 21.4.6 20.3 3.4 13" /><path fill="none" stroke-width="13.3" d="M28.8 133a100 100 0 0 0 66.9 94.4v-8.7c-22.4 1.8-33-11.5-35.6-19.8-3.4-8.6-7.8-11.4-8.5-11.8"/></g></g>  </svg>  </a><a href="https://www.linkedin.com/in/stephen-abbot/" class="social" data-astro-cid-dmqpwcec> <span class="sr-only" data-astro-cid-dmqpwcec>LinkedIn</span> <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 256 256" aria-hidden="true" stroke="currentcolor" fill="currentcolor" class="astro-patnjmll" data-astro-cid-patnjmll> <g data-astro-cid-patnjmll><rect width="184" height="184" x="36" y="36" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="16" rx="8"/><path fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="16" d="M120 112v64m-32-64v64m32-36a28 28 0 0 1 56 0v36"/><circle stroke="none" cx="88" cy="80" r="12"/></g>  </svg>  </a> </div> <div class="theme-toggle" data-astro-cid-dmqpwcec> <theme-toggle data-astro-cid-x3pjskd3="true"> <button data-astro-cid-x3pjskd3> <span class="sr-only" data-astro-cid-x3pjskd3>Dark theme</span> <span class="icon light" data-astro-cid-x3pjskd3><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 256 256" aria-hidden="true" stroke="currentcolor" fill="currentcolor" class="astro-patnjmll" data-astro-cid-patnjmll> <g data-astro-cid-patnjmll><circle cx="128" cy="128" r="60" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><path fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="16" d="M128 36V16M63 63 49 49m-13 79H16m47 65-14 14m79 13v20m65-47 14 14m13-79h20m-47-65 14-14"/></g>  </svg> </span> <span class="icon dark" data-astro-cid-x3pjskd3><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 256 256" aria-hidden="true" stroke="currentcolor" fill="currentcolor" class="astro-patnjmll" data-astro-cid-patnjmll> <g data-astro-cid-patnjmll><path fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="16" d="M216 112V64m24 24h-48m-24-64v32m16-16h-32m65 113A92 92 0 0 1 103 39h0a92 92 0 1 0 114 114Z"/></g>  </svg> </span> </button> </theme-toggle>  <script type="module" src="/_astro/ThemeToggle.astro_astro_type_script_index_0_lang.uzd8m1xC.js"></script> </div> </div>  </nav>
 === DONE ===
